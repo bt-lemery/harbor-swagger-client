@@ -29,7 +29,7 @@ module SwaggerClient
     # the role id
     attr_accessor :role_id
 
-    # the id of entity, if the member is an user, it is user_id in user table. if the member is an user group, it is the user group's ID in user_group table.
+    # the id of entity, if the member is a user, it is user_id in user table. if the member is a user group, it is the user group's ID in user_group table.
     attr_accessor :entity_id
 
     # the entity's type, u for user entity, g for group entity.

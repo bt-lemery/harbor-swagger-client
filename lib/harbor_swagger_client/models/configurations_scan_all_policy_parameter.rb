@@ -15,7 +15,7 @@ require 'date'
 module SwaggerClient
   # The parameters of the policy, the values are dependant on the type of the policy.
   class ConfigurationsScanAllPolicyParameter
-    # The offest in seconds of UTC 0 o'clock, only valid when the policy type is \"daily\"
+    # The offset in seconds of UTC 0 o'clock, only valid when the policy type is \"daily\"
     attr_accessor :daily_time
 
     # Attribute mapping from ruby-style variable name to JSON key.

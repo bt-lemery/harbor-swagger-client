@@ -20,6 +20,9 @@ module SwaggerClient
     # The metadata of the project.
     attr_accessor :metadata
 
+    # The CVE whitelist of the project.
+    attr_accessor :cve_whitelist
+
     # The count quota of the project.
     attr_accessor :count_limit
 
@@ -31,6 +34,7 @@ module SwaggerClient
       {
         :'project_name' => :'project_name',
         :'metadata' => :'metadata',
+        :'cve_whitelist' => :'cve_whitelist',
         :'count_limit' => :'count_limit',
         :'storage_limit' => :'storage_limit'
       }
@@ -41,6 +45,7 @@ module SwaggerClient
       {
         :'project_name' => :'String',
         :'metadata' => :'ProjectMetadata',
+        :'cve_whitelist' => :'CVEWhitelist',
         :'count_limit' => :'Integer',
         :'storage_limit' => :'Integer'
       }
@@ -60,6 +65,10 @@ module SwaggerClient
 
       if attributes.has_key?(:'metadata')
         self.metadata = attributes[:'metadata']
+      end
+
+      if attributes.has_key?(:'cve_whitelist')
+        self.cve_whitelist = attributes[:'cve_whitelist']
       end
 
       if attributes.has_key?(:'count_limit')
@@ -91,6 +100,7 @@ module SwaggerClient
       self.class == o.class &&
           project_name == o.project_name &&
           metadata == o.metadata &&
+          cve_whitelist == o.cve_whitelist &&
           count_limit == o.count_limit &&
           storage_limit == o.storage_limit
     end
@@ -104,7 +114,7 @@ module SwaggerClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [project_name, metadata, count_limit, storage_limit].hash
+      [project_name, metadata, cve_whitelist, count_limit, storage_limit].hash
     end
 
     # Builds the object from hash

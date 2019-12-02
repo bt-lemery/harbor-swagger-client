@@ -32,7 +32,7 @@ api_instance = SwaggerClient::QuotaApi.new
 opts = { 
   reference: 'reference_example', # String | The reference type of quota.
   sort: 'sort_example', # String | Sort method, valid values include: 'hard.resource_name', '-hard.resource_name', 'used.resource_name', '-used.resource_name'. Here '-' stands for descending order, resource_name should be the real resource name of the quota. 
-  page: 56, # Integer | The page nubmer, default is 1.
+  page: 56, # Integer | The page number, default is 1.
   page_size: 56 # Integer | The size of per page, default is 10, maximum is 100.
 }
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **reference** | **String**| The reference type of quota. | [optional] 
  **sort** | **String**| Sort method, valid values include: &#39;hard.resource_name&#39;, &#39;-hard.resource_name&#39;, &#39;used.resource_name&#39;, &#39;-used.resource_name&#39;. Here &#39;-&#39; stands for descending order, resource_name should be the real resource name of the quota.  | [optional] 
- **page** | **Integer**| The page nubmer, default is 1. | [optional] 
+ **page** | **Integer**| The page number, default is 1. | [optional] 
  **page_size** | **Integer**| The size of per page, default is 10, maximum is 100. | [optional] 
 
 ### Return type

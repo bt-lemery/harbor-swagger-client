@@ -18,7 +18,7 @@ module SwaggerClient
     # The digest of the image.
     attr_accessor :digest
 
-    # The status of the scan job, it can be \"pendnig\", \"running\", \"finished\", \"error\".
+    # The status of the scan job, it can be \"pending\", \"running\", \"finished\", \"error\".
     attr_accessor :scan_status
 
     # The ID of the job on jobservice to scan the image.

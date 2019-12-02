@@ -17,17 +17,20 @@ module SwaggerClient
     # The public status of the project. The valid values are \"true\", \"false\".
     attr_accessor :public
 
-    # Whether content trust is enabled or not. If it is enabled, user cann't pull unsigned images from this project. The valid values are \"true\", \"false\".
+    # Whether content trust is enabled or not. If it is enabled, user can't pull unsigned images from this project. The valid values are \"true\", \"false\".
     attr_accessor :enable_content_trust
 
     # Whether prevent the vulnerable images from running. The valid values are \"true\", \"false\".
     attr_accessor :prevent_vul
 
-    # If the vulnerability is high than severity defined here, the images cann't be pulled. The valid values are \"negligible\", \"low\", \"medium\", \"high\", \"critical\".
+    # If the vulnerability is high than severity defined here, the images can't be pulled. The valid values are \"negligible\", \"low\", \"medium\", \"high\", \"critical\".
     attr_accessor :severity
 
     # Whether scan images automatically when pushing. The valid values are \"true\", \"false\".
     attr_accessor :auto_scan
+
+    # Whether this project reuse the system level CVE whitelist as the whitelist of its own.  The valid values are \"true\", \"false\". If it is set to \"true\" the actual whitelist associate with this project, if any, will be ignored.
+    attr_accessor :reuse_sys_cve_whitelist
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -36,7 +39,8 @@ module SwaggerClient
         :'enable_content_trust' => :'enable_content_trust',
         :'prevent_vul' => :'prevent_vul',
         :'severity' => :'severity',
-        :'auto_scan' => :'auto_scan'
+        :'auto_scan' => :'auto_scan',
+        :'reuse_sys_cve_whitelist' => :'reuse_sys_cve_whitelist'
       }
     end
 
@@ -47,7 +51,8 @@ module SwaggerClient
         :'enable_content_trust' => :'String',
         :'prevent_vul' => :'String',
         :'severity' => :'String',
-        :'auto_scan' => :'String'
+        :'auto_scan' => :'String',
+        :'reuse_sys_cve_whitelist' => :'String'
       }
     end
 
@@ -78,6 +83,10 @@ module SwaggerClient
       if attributes.has_key?(:'auto_scan')
         self.auto_scan = attributes[:'auto_scan']
       end
+
+      if attributes.has_key?(:'reuse_sys_cve_whitelist')
+        self.reuse_sys_cve_whitelist = attributes[:'reuse_sys_cve_whitelist']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -102,7 +111,8 @@ module SwaggerClient
           enable_content_trust == o.enable_content_trust &&
           prevent_vul == o.prevent_vul &&
           severity == o.severity &&
-          auto_scan == o.auto_scan
+          auto_scan == o.auto_scan &&
+          reuse_sys_cve_whitelist == o.reuse_sys_cve_whitelist
     end
 
     # @see the `==` method
@@ -114,7 +124,7 @@ module SwaggerClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [public, enable_content_trust, prevent_vul, severity, auto_scan].hash
+      [public, enable_content_trust, prevent_vul, severity, auto_scan, reuse_sys_cve_whitelist].hash
     end
 
     # Builds the object from hash

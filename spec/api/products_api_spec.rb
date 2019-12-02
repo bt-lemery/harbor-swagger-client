@@ -239,6 +239,29 @@ describe 'ProductsApi' do
     end
   end
 
+  # unit tests for internal_switchquota_put
+  # Enable or disable quota.
+  # This endpoint is for enable/disable quota. When quota is disabled, no resource require/release in image/chart push and delete. 
+  # @param switcher 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'internal_switchquota_put test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for internal_syncquota_post
+  # Sync quota from registry/chart to DB.
+  # This endpoint is for syncing quota usage of registry/chart with database. 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'internal_syncquota_post test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for internal_syncregistry_post
   # Sync repositories from registry to DB.
   # This endpoint is for syncing all repositories of registry with database. 
@@ -386,7 +409,7 @@ describe 'ProductsApi' do
   # @option opts [String] :operation The operation
   # @option opts [String] :begin_timestamp The begin timestamp
   # @option opts [String] :end_timestamp The end timestamp
-  # @option opts [Integer] :page The page nubmer, default is 1.
+  # @option opts [Integer] :page The page number, default is 1.
   # @option opts [Integer] :page_size The size of per page, default is 10, maximum is 100.
   # @return [Array<AccessLog>]
   describe 'logs_get test' do
@@ -402,7 +425,7 @@ describe 'ProductsApi' do
   # @option opts [String] :name The name of project.
   # @option opts [BOOLEAN] :public The project is public or private.
   # @option opts [String] :owner The name of project owner.
-  # @option opts [Integer] :page The page nubmer, default is 1.
+  # @option opts [Integer] :page The page number, default is 1.
   # @option opts [Integer] :page_size The size of per page, default is 10, maximum is 100.
   # @return [Array<Project>]
   describe 'projects_get test' do
@@ -470,7 +493,7 @@ describe 'ProductsApi' do
   # @option opts [String] :operation The operation
   # @option opts [String] :begin_timestamp The begin timestamp
   # @option opts [String] :end_timestamp The end timestamp
-  # @option opts [Integer] :page The page nubmer, default is 1.
+  # @option opts [Integer] :page The page number, default is 1.
   # @option opts [Integer] :page_size The size of per page, default is 10, maximum is 100.
   # @return [Array<AccessLog>]
   describe 'projects_project_id_logs_get test' do
@@ -699,6 +722,7 @@ describe 'ProductsApi' do
   end
 
   # unit tests for projects_project_id_webhook_jobs_get
+  # List project webhook jobs
   # This endpoint returns webhook jobs of a project. 
   # @param project_id Relevant project ID.
   # @param policy_id The policy ID.
@@ -723,6 +747,7 @@ describe 'ProductsApi' do
   end
 
   # unit tests for projects_project_id_webhook_policies_get
+  # List project webhook policies.
   # This endpoint returns webhook policies of a project. 
   # @param project_id Relevant project ID.
   # @param [Hash] opts the optional parameters
@@ -774,6 +799,7 @@ describe 'ProductsApi' do
   end
 
   # unit tests for projects_project_id_webhook_policies_post
+  # Create project webhook policy.
   # This endpoint create a webhook policy if the project does not have one. 
   # @param project_id Relevant project ID
   # @param policy Properties \&quot;targets\&quot; and \&quot;event_types\&quot; needed.
@@ -1055,7 +1081,7 @@ describe 'ProductsApi' do
   # @option opts [String] :q Repo name for filtering results.
   # @option opts [String] :sort Sort method, valid values include: &#39;name&#39;, &#39;-name&#39;, &#39;creation_time&#39;, &#39;-creation_time&#39;, &#39;update_time&#39;, &#39;-update_time&#39;. Here &#39;-&#39; stands for descending order. 
   # @option opts [Integer] :label_id The ID of label used to filter the result.
-  # @option opts [Integer] :page The page nubmer, default is 1.
+  # @option opts [Integer] :page The page number, default is 1.
   # @option opts [Integer] :page_size The size of per page, default is 10, maximum is 100.
   # @return [Array<Repository>]
   describe 'repositories_get test' do
@@ -1144,7 +1170,8 @@ describe 'ProductsApi' do
   # This endpoint aims to retrieve tags from a relevant repository. If deployed with Notary, the signature property of response represents whether the image is singed or not. If the property is null, the image is unsigned. 
   # @param repo_name Relevant repository name.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :label_ids A list of comma separated label IDs.
+  # @option opts [String] :label_id A label ID.
+  # @option opts [BOOLEAN] :detail Bool value indicating whether return detailed information of the tag, such as vulnerability scan info, if set to false, only tag name is returned.
   # @return [Array<DetailedTag>]
   describe 'repositories_repo_name_tags_get test' do
     it 'should work' do
@@ -1279,6 +1306,120 @@ describe 'ProductsApi' do
   # @option opts [Integer] :count The number of the requested public repositories, default is 10 if not provided.
   # @return [Array<Repository>]
   describe 'repositories_top_get test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for retentions_id_executions_eid_patch
+  # Stop a Retention job
+  # Stop a Retention job, only support \&quot;stop\&quot; action now.
+  # @param id Retention ID.
+  # @param eid Retention execution ID.
+  # @param action The action, only support \&quot;stop\&quot; now.
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'retentions_id_executions_eid_patch test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for retentions_id_executions_eid_tasks_get
+  # Get Retention job tasks
+  # Get Retention job tasks, each repository as a task.
+  # @param id Retention ID.
+  # @param eid Retention execution ID.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<RetentionExecutionTask>]
+  describe 'retentions_id_executions_eid_tasks_get test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for retentions_id_executions_eid_tasks_tid_get
+  # Get Retention job task log
+  # Get Retention job task log, tags ratain or deletion detail will be shown in a table.
+  # @param id Retention ID.
+  # @param eid Retention execution ID.
+  # @param tid Retention execution ID.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'retentions_id_executions_eid_tasks_tid_get test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for retentions_id_executions_get
+  # Get a Retention job
+  # Get a Retention job, job status may be delayed before job service schedule it up.
+  # @param id Retention ID.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<RetentionExecution>]
+  describe 'retentions_id_executions_get test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for retentions_id_executions_post
+  # Trigger a Retention job
+  # Trigger a Retention job, if dry_run is True, nothing would be deleted actually.
+  # @param id Retention ID.
+  # @param action 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'retentions_id_executions_post test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for retentions_id_get
+  # Get Retention Policy
+  # Get Retention Policy.
+  # @param id Retention ID.
+  # @param [Hash] opts the optional parameters
+  # @return [RetentionPolicy]
+  describe 'retentions_id_get test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for retentions_id_put
+  # Update Retention Policy
+  # Update Retention Policy, you can reference metadatas API for the policy model. You can check project metadatas to find whether a retention policy is already binded. This method should only be called when retention policy has already binded to project. 
+  # @param id Retention ID.
+  # @param policy 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'retentions_id_put test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for retentions_metadatas_get
+  # Get Retention Metadatas
+  # Get Retention Metadatas.
+  # @param [Hash] opts the optional parameters
+  # @return [RetentionMetadata]
+  describe 'retentions_metadatas_get test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for retentions_post
+  # Create Retention Policy
+  # Create Retention Policy, you can reference metadatas API for the policy model. You can check project metadatas to find whether a retention policy is already binded. This method should only be called when no retention policy binded to project yet. 
+  # @param policy Create Retention Policy successfully.
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'retentions_post test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -1570,7 +1711,7 @@ describe 'ProductsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [String] :username Username for filtering results.
   # @option opts [String] :email Email for filtering results.
-  # @option opts [Integer] :page The page nubmer, default is 1.
+  # @option opts [Integer] :page The page number, default is 1.
   # @option opts [Integer] :page_size The size of per page.
   # @return [Array<User>]
   describe 'users_get test' do
@@ -1592,12 +1733,11 @@ describe 'ProductsApi' do
   end
 
   # unit tests for users_search_get
-  # Search users by username, email
-  # This endpoint is to search the users by username, email. 
+  # Search users by username
+  # This endpoint is to search the users by username. 
+  # @param username Username for filtering results.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :username Username for filtering results.
-  # @option opts [String] :email Email for filtering results.
-  # @option opts [Integer] :page The page nubmer, default is 1.
+  # @option opts [Integer] :page The page number, default is 1.
   # @option opts [Integer] :page_size The size of per page.
   # @return [Array<UserSearch>]
   describe 'users_search_get test' do

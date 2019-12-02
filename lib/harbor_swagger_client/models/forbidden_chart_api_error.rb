@@ -13,7 +13,7 @@ Swagger Codegen version: 2.4.7
 require 'date'
 
 module SwaggerClient
-  # Operation is forbidden
+  # Operation is forbidden or quota exceeded
   class ForbiddenChartAPIError
     # The error message returned by the chart API
     attr_accessor :error

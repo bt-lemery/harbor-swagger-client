@@ -38,7 +38,7 @@ describe 'QuotaApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [String] :reference The reference type of quota.
   # @option opts [String] :sort Sort method, valid values include: &#39;hard.resource_name&#39;, &#39;-hard.resource_name&#39;, &#39;used.resource_name&#39;, &#39;-used.resource_name&#39;. Here &#39;-&#39; stands for descending order, resource_name should be the real resource name of the quota. 
-  # @option opts [Integer] :page The page nubmer, default is 1.
+  # @option opts [Integer] :page The page number, default is 1.
   # @option opts [Integer] :page_size The size of per page, default is 10, maximum is 100.
   # @return [Array<Quota>]
   describe 'quotas_get test' do

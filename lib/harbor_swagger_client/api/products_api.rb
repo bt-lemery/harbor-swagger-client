@@ -956,6 +956,106 @@ module SwaggerClient
       end
       return data, status_code, headers
     end
+    # Enable or disable quota.
+    # This endpoint is for enable/disable quota. When quota is disabled, no resource require/release in image/chart push and delete. 
+    # @param switcher 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def internal_switchquota_put(switcher, opts = {})
+      internal_switchquota_put_with_http_info(switcher, opts)
+      nil
+    end
+
+    # Enable or disable quota.
+    # This endpoint is for enable/disable quota. When quota is disabled, no resource require/release in image/chart push and delete. 
+    # @param switcher 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def internal_switchquota_put_with_http_info(switcher, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductsApi.internal_switchquota_put ...'
+      end
+      # verify the required parameter 'switcher' is set
+      if @api_client.config.client_side_validation && switcher.nil?
+        fail ArgumentError, "Missing the required parameter 'switcher' when calling ProductsApi.internal_switchquota_put"
+      end
+      # resource path
+      local_var_path = '/internal/switchquota'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/plain'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(switcher)
+      auth_names = ['basicAuth']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductsApi#internal_switchquota_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Sync quota from registry/chart to DB.
+    # This endpoint is for syncing quota usage of registry/chart with database. 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def internal_syncquota_post(opts = {})
+      internal_syncquota_post_with_http_info(opts)
+      nil
+    end
+
+    # Sync quota from registry/chart to DB.
+    # This endpoint is for syncing quota usage of registry/chart with database. 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def internal_syncquota_post_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductsApi.internal_syncquota_post ...'
+      end
+      # resource path
+      local_var_path = '/internal/syncquota'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/plain'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['basicAuth']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductsApi#internal_syncquota_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Sync repositories from registry to DB.
     # This endpoint is for syncing all repositories of registry with database. 
     # @param [Hash] opts the optional parameters
@@ -1559,7 +1659,7 @@ module SwaggerClient
     # @option opts [String] :operation The operation
     # @option opts [String] :begin_timestamp The begin timestamp
     # @option opts [String] :end_timestamp The end timestamp
-    # @option opts [Integer] :page The page nubmer, default is 1.
+    # @option opts [Integer] :page The page number, default is 1.
     # @option opts [Integer] :page_size The size of per page, default is 10, maximum is 100.
     # @return [Array<AccessLog>]
     def logs_get(opts = {})
@@ -1576,7 +1676,7 @@ module SwaggerClient
     # @option opts [String] :operation The operation
     # @option opts [String] :begin_timestamp The begin timestamp
     # @option opts [String] :end_timestamp The end timestamp
-    # @option opts [Integer] :page The page nubmer, default is 1.
+    # @option opts [Integer] :page The page number, default is 1.
     # @option opts [Integer] :page_size The size of per page, default is 10, maximum is 100.
     # @return [Array<(Array<AccessLog>, Fixnum, Hash)>] Array<AccessLog> data, response status code and response headers
     def logs_get_with_http_info(opts = {})
@@ -1628,7 +1728,7 @@ module SwaggerClient
     # @option opts [String] :name The name of project.
     # @option opts [BOOLEAN] :public The project is public or private.
     # @option opts [String] :owner The name of project owner.
-    # @option opts [Integer] :page The page nubmer, default is 1.
+    # @option opts [Integer] :page The page number, default is 1.
     # @option opts [Integer] :page_size The size of per page, default is 10, maximum is 100.
     # @return [Array<Project>]
     def projects_get(opts = {})
@@ -1642,7 +1742,7 @@ module SwaggerClient
     # @option opts [String] :name The name of project.
     # @option opts [BOOLEAN] :public The project is public or private.
     # @option opts [String] :owner The name of project owner.
-    # @option opts [Integer] :page The page nubmer, default is 1.
+    # @option opts [Integer] :page The page number, default is 1.
     # @option opts [Integer] :page_size The size of per page, default is 10, maximum is 100.
     # @return [Array<(Array<Project>, Fixnum, Hash)>] Array<Project> data, response status code and response headers
     def projects_get_with_http_info(opts = {})
@@ -1909,7 +2009,7 @@ module SwaggerClient
     # @option opts [String] :operation The operation
     # @option opts [String] :begin_timestamp The begin timestamp
     # @option opts [String] :end_timestamp The end timestamp
-    # @option opts [Integer] :page The page nubmer, default is 1.
+    # @option opts [Integer] :page The page number, default is 1.
     # @option opts [Integer] :page_size The size of per page, default is 10, maximum is 100.
     # @return [Array<AccessLog>]
     def projects_project_id_logs_get(project_id, opts = {})
@@ -1927,7 +2027,7 @@ module SwaggerClient
     # @option opts [String] :operation The operation
     # @option opts [String] :begin_timestamp The begin timestamp
     # @option opts [String] :end_timestamp The end timestamp
-    # @option opts [Integer] :page The page nubmer, default is 1.
+    # @option opts [Integer] :page The page number, default is 1.
     # @option opts [Integer] :page_size The size of per page, default is 10, maximum is 100.
     # @return [Array<(Array<AccessLog>, Fixnum, Hash)>] Array<AccessLog> data, response status code and response headers
     def projects_project_id_logs_get_with_http_info(project_id, opts = {})
@@ -2969,6 +3069,7 @@ module SwaggerClient
       end
       return data, status_code, headers
     end
+    # List project webhook jobs
     # This endpoint returns webhook jobs of a project. 
     # @param project_id Relevant project ID.
     # @param policy_id The policy ID.
@@ -2979,6 +3080,7 @@ module SwaggerClient
       data
     end
 
+    # List project webhook jobs
     # This endpoint returns webhook jobs of a project. 
     # @param project_id Relevant project ID.
     # @param policy_id The policy ID.
@@ -3082,6 +3184,7 @@ module SwaggerClient
       end
       return data, status_code, headers
     end
+    # List project webhook policies.
     # This endpoint returns webhook policies of a project. 
     # @param project_id Relevant project ID.
     # @param [Hash] opts the optional parameters
@@ -3091,6 +3194,7 @@ module SwaggerClient
       data
     end
 
+    # List project webhook policies.
     # This endpoint returns webhook policies of a project. 
     # @param project_id Relevant project ID.
     # @param [Hash] opts the optional parameters
@@ -3318,6 +3422,7 @@ module SwaggerClient
       end
       return data, status_code, headers
     end
+    # Create project webhook policy.
     # This endpoint create a webhook policy if the project does not have one. 
     # @param project_id Relevant project ID
     # @param policy Properties \&quot;targets\&quot; and \&quot;event_types\&quot; needed.
@@ -3328,6 +3433,7 @@ module SwaggerClient
       nil
     end
 
+    # Create project webhook policy.
     # This endpoint create a webhook policy if the project does not have one. 
     # @param project_id Relevant project ID
     # @param policy Properties \&quot;targets\&quot; and \&quot;event_types\&quot; needed.
@@ -4535,7 +4641,7 @@ module SwaggerClient
     # @option opts [String] :q Repo name for filtering results.
     # @option opts [String] :sort Sort method, valid values include: &#39;name&#39;, &#39;-name&#39;, &#39;creation_time&#39;, &#39;-creation_time&#39;, &#39;update_time&#39;, &#39;-update_time&#39;. Here &#39;-&#39; stands for descending order. 
     # @option opts [Integer] :label_id The ID of label used to filter the result.
-    # @option opts [Integer] :page The page nubmer, default is 1.
+    # @option opts [Integer] :page The page number, default is 1.
     # @option opts [Integer] :page_size The size of per page, default is 10, maximum is 100.
     # @return [Array<Repository>]
     def repositories_get(project_id, opts = {})
@@ -4550,7 +4656,7 @@ module SwaggerClient
     # @option opts [String] :q Repo name for filtering results.
     # @option opts [String] :sort Sort method, valid values include: &#39;name&#39;, &#39;-name&#39;, &#39;creation_time&#39;, &#39;-creation_time&#39;, &#39;update_time&#39;, &#39;-update_time&#39;. Here &#39;-&#39; stands for descending order. 
     # @option opts [Integer] :label_id The ID of label used to filter the result.
-    # @option opts [Integer] :page The page nubmer, default is 1.
+    # @option opts [Integer] :page The page number, default is 1.
     # @option opts [Integer] :page_size The size of per page, default is 10, maximum is 100.
     # @return [Array<(Array<Repository>, Fixnum, Hash)>] Array<Repository> data, response status code and response headers
     def repositories_get_with_http_info(project_id, opts = {})
@@ -4940,7 +5046,8 @@ module SwaggerClient
     # This endpoint aims to retrieve tags from a relevant repository. If deployed with Notary, the signature property of response represents whether the image is singed or not. If the property is null, the image is unsigned. 
     # @param repo_name Relevant repository name.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :label_ids A list of comma separated label IDs.
+    # @option opts [String] :label_id A label ID.
+    # @option opts [BOOLEAN] :detail Bool value indicating whether return detailed information of the tag, such as vulnerability scan info, if set to false, only tag name is returned.
     # @return [Array<DetailedTag>]
     def repositories_repo_name_tags_get(repo_name, opts = {})
       data, _status_code, _headers = repositories_repo_name_tags_get_with_http_info(repo_name, opts)
@@ -4951,7 +5058,8 @@ module SwaggerClient
     # This endpoint aims to retrieve tags from a relevant repository. If deployed with Notary, the signature property of response represents whether the image is singed or not. If the property is null, the image is unsigned. 
     # @param repo_name Relevant repository name.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :label_ids A list of comma separated label IDs.
+    # @option opts [String] :label_id A label ID.
+    # @option opts [BOOLEAN] :detail Bool value indicating whether return detailed information of the tag, such as vulnerability scan info, if set to false, only tag name is returned.
     # @return [Array<(Array<DetailedTag>, Fixnum, Hash)>] Array<DetailedTag> data, response status code and response headers
     def repositories_repo_name_tags_get_with_http_info(repo_name, opts = {})
       if @api_client.config.debugging
@@ -4966,7 +5074,8 @@ module SwaggerClient
 
       # query parameters
       query_params = {}
-      query_params[:'label_ids'] = opts[:'label_ids'] if !opts[:'label_ids'].nil?
+      query_params[:'label_id'] = opts[:'label_id'] if !opts[:'label_id'].nil?
+      query_params[:'detail'] = opts[:'detail'] if !opts[:'detail'].nil?
 
       # header parameters
       header_params = {}
@@ -5591,6 +5700,524 @@ module SwaggerClient
         :return_type => 'Array<Repository>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProductsApi#repositories_top_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Stop a Retention job
+    # Stop a Retention job, only support \"stop\" action now.
+    # @param id Retention ID.
+    # @param eid Retention execution ID.
+    # @param action The action, only support \&quot;stop\&quot; now.
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def retentions_id_executions_eid_patch(id, eid, action, opts = {})
+      retentions_id_executions_eid_patch_with_http_info(id, eid, action, opts)
+      nil
+    end
+
+    # Stop a Retention job
+    # Stop a Retention job, only support \&quot;stop\&quot; action now.
+    # @param id Retention ID.
+    # @param eid Retention execution ID.
+    # @param action The action, only support \&quot;stop\&quot; now.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def retentions_id_executions_eid_patch_with_http_info(id, eid, action, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductsApi.retentions_id_executions_eid_patch ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling ProductsApi.retentions_id_executions_eid_patch"
+      end
+      # verify the required parameter 'eid' is set
+      if @api_client.config.client_side_validation && eid.nil?
+        fail ArgumentError, "Missing the required parameter 'eid' when calling ProductsApi.retentions_id_executions_eid_patch"
+      end
+      # verify the required parameter 'action' is set
+      if @api_client.config.client_side_validation && action.nil?
+        fail ArgumentError, "Missing the required parameter 'action' when calling ProductsApi.retentions_id_executions_eid_patch"
+      end
+      # resource path
+      local_var_path = '/retentions/{id}/executions/{eid}'.sub('{' + 'id' + '}', id.to_s).sub('{' + 'eid' + '}', eid.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/plain'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(action)
+      auth_names = ['basicAuth']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductsApi#retentions_id_executions_eid_patch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get Retention job tasks
+    # Get Retention job tasks, each repository as a task.
+    # @param id Retention ID.
+    # @param eid Retention execution ID.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<RetentionExecutionTask>]
+    def retentions_id_executions_eid_tasks_get(id, eid, opts = {})
+      data, _status_code, _headers = retentions_id_executions_eid_tasks_get_with_http_info(id, eid, opts)
+      data
+    end
+
+    # Get Retention job tasks
+    # Get Retention job tasks, each repository as a task.
+    # @param id Retention ID.
+    # @param eid Retention execution ID.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Array<RetentionExecutionTask>, Fixnum, Hash)>] Array<RetentionExecutionTask> data, response status code and response headers
+    def retentions_id_executions_eid_tasks_get_with_http_info(id, eid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductsApi.retentions_id_executions_eid_tasks_get ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling ProductsApi.retentions_id_executions_eid_tasks_get"
+      end
+      # verify the required parameter 'eid' is set
+      if @api_client.config.client_side_validation && eid.nil?
+        fail ArgumentError, "Missing the required parameter 'eid' when calling ProductsApi.retentions_id_executions_eid_tasks_get"
+      end
+      # resource path
+      local_var_path = '/retentions/{id}/executions/{eid}/tasks'.sub('{' + 'id' + '}', id.to_s).sub('{' + 'eid' + '}', eid.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/plain'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['basicAuth']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<RetentionExecutionTask>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductsApi#retentions_id_executions_eid_tasks_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get Retention job task log
+    # Get Retention job task log, tags ratain or deletion detail will be shown in a table.
+    # @param id Retention ID.
+    # @param eid Retention execution ID.
+    # @param tid Retention execution ID.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def retentions_id_executions_eid_tasks_tid_get(id, eid, tid, opts = {})
+      data, _status_code, _headers = retentions_id_executions_eid_tasks_tid_get_with_http_info(id, eid, tid, opts)
+      data
+    end
+
+    # Get Retention job task log
+    # Get Retention job task log, tags ratain or deletion detail will be shown in a table.
+    # @param id Retention ID.
+    # @param eid Retention execution ID.
+    # @param tid Retention execution ID.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def retentions_id_executions_eid_tasks_tid_get_with_http_info(id, eid, tid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductsApi.retentions_id_executions_eid_tasks_tid_get ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling ProductsApi.retentions_id_executions_eid_tasks_tid_get"
+      end
+      # verify the required parameter 'eid' is set
+      if @api_client.config.client_side_validation && eid.nil?
+        fail ArgumentError, "Missing the required parameter 'eid' when calling ProductsApi.retentions_id_executions_eid_tasks_tid_get"
+      end
+      # verify the required parameter 'tid' is set
+      if @api_client.config.client_side_validation && tid.nil?
+        fail ArgumentError, "Missing the required parameter 'tid' when calling ProductsApi.retentions_id_executions_eid_tasks_tid_get"
+      end
+      # resource path
+      local_var_path = '/retentions/{id}/executions/{eid}/tasks/{tid}'.sub('{' + 'id' + '}', id.to_s).sub('{' + 'eid' + '}', eid.to_s).sub('{' + 'tid' + '}', tid.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/plain'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['basicAuth']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductsApi#retentions_id_executions_eid_tasks_tid_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get a Retention job
+    # Get a Retention job, job status may be delayed before job service schedule it up.
+    # @param id Retention ID.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<RetentionExecution>]
+    def retentions_id_executions_get(id, opts = {})
+      data, _status_code, _headers = retentions_id_executions_get_with_http_info(id, opts)
+      data
+    end
+
+    # Get a Retention job
+    # Get a Retention job, job status may be delayed before job service schedule it up.
+    # @param id Retention ID.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Array<RetentionExecution>, Fixnum, Hash)>] Array<RetentionExecution> data, response status code and response headers
+    def retentions_id_executions_get_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductsApi.retentions_id_executions_get ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling ProductsApi.retentions_id_executions_get"
+      end
+      # resource path
+      local_var_path = '/retentions/{id}/executions'.sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/plain'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['basicAuth']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<RetentionExecution>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductsApi#retentions_id_executions_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Trigger a Retention job
+    # Trigger a Retention job, if dry_run is True, nothing would be deleted actually.
+    # @param id Retention ID.
+    # @param action 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def retentions_id_executions_post(id, action, opts = {})
+      retentions_id_executions_post_with_http_info(id, action, opts)
+      nil
+    end
+
+    # Trigger a Retention job
+    # Trigger a Retention job, if dry_run is True, nothing would be deleted actually.
+    # @param id Retention ID.
+    # @param action 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def retentions_id_executions_post_with_http_info(id, action, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductsApi.retentions_id_executions_post ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling ProductsApi.retentions_id_executions_post"
+      end
+      # verify the required parameter 'action' is set
+      if @api_client.config.client_side_validation && action.nil?
+        fail ArgumentError, "Missing the required parameter 'action' when calling ProductsApi.retentions_id_executions_post"
+      end
+      # resource path
+      local_var_path = '/retentions/{id}/executions'.sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/plain'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(action)
+      auth_names = ['basicAuth']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductsApi#retentions_id_executions_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get Retention Policy
+    # Get Retention Policy.
+    # @param id Retention ID.
+    # @param [Hash] opts the optional parameters
+    # @return [RetentionPolicy]
+    def retentions_id_get(id, opts = {})
+      data, _status_code, _headers = retentions_id_get_with_http_info(id, opts)
+      data
+    end
+
+    # Get Retention Policy
+    # Get Retention Policy.
+    # @param id Retention ID.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RetentionPolicy, Fixnum, Hash)>] RetentionPolicy data, response status code and response headers
+    def retentions_id_get_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductsApi.retentions_id_get ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling ProductsApi.retentions_id_get"
+      end
+      # resource path
+      local_var_path = '/retentions/{id}'.sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/plain'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['basicAuth']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RetentionPolicy')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductsApi#retentions_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update Retention Policy
+    # Update Retention Policy, you can reference metadatas API for the policy model. You can check project metadatas to find whether a retention policy is already binded. This method should only be called when retention policy has already binded to project. 
+    # @param id Retention ID.
+    # @param policy 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def retentions_id_put(id, policy, opts = {})
+      retentions_id_put_with_http_info(id, policy, opts)
+      nil
+    end
+
+    # Update Retention Policy
+    # Update Retention Policy, you can reference metadatas API for the policy model. You can check project metadatas to find whether a retention policy is already binded. This method should only be called when retention policy has already binded to project. 
+    # @param id Retention ID.
+    # @param policy 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def retentions_id_put_with_http_info(id, policy, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductsApi.retentions_id_put ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling ProductsApi.retentions_id_put"
+      end
+      # verify the required parameter 'policy' is set
+      if @api_client.config.client_side_validation && policy.nil?
+        fail ArgumentError, "Missing the required parameter 'policy' when calling ProductsApi.retentions_id_put"
+      end
+      # resource path
+      local_var_path = '/retentions/{id}'.sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/plain'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(policy)
+      auth_names = ['basicAuth']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductsApi#retentions_id_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get Retention Metadatas
+    # Get Retention Metadatas.
+    # @param [Hash] opts the optional parameters
+    # @return [RetentionMetadata]
+    def retentions_metadatas_get(opts = {})
+      data, _status_code, _headers = retentions_metadatas_get_with_http_info(opts)
+      data
+    end
+
+    # Get Retention Metadatas
+    # Get Retention Metadatas.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RetentionMetadata, Fixnum, Hash)>] RetentionMetadata data, response status code and response headers
+    def retentions_metadatas_get_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductsApi.retentions_metadatas_get ...'
+      end
+      # resource path
+      local_var_path = '/retentions/metadatas'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/plain'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['basicAuth']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RetentionMetadata')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductsApi#retentions_metadatas_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Create Retention Policy
+    # Create Retention Policy, you can reference metadatas API for the policy model. You can check project metadatas to find whether a retention policy is already binded. This method should only be called when no retention policy binded to project yet. 
+    # @param policy Create Retention Policy successfully.
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def retentions_post(policy, opts = {})
+      retentions_post_with_http_info(policy, opts)
+      nil
+    end
+
+    # Create Retention Policy
+    # Create Retention Policy, you can reference metadatas API for the policy model. You can check project metadatas to find whether a retention policy is already binded. This method should only be called when no retention policy binded to project yet. 
+    # @param policy Create Retention Policy successfully.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def retentions_post_with_http_info(policy, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ProductsApi.retentions_post ...'
+      end
+      # verify the required parameter 'policy' is set
+      if @api_client.config.client_side_validation && policy.nil?
+        fail ArgumentError, "Missing the required parameter 'policy' when calling ProductsApi.retentions_post"
+      end
+      # resource path
+      local_var_path = '/retentions'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/plain'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(policy)
+      auth_names = ['basicAuth']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductsApi#retentions_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -6820,7 +7447,7 @@ module SwaggerClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :username Username for filtering results.
     # @option opts [String] :email Email for filtering results.
-    # @option opts [Integer] :page The page nubmer, default is 1.
+    # @option opts [Integer] :page The page number, default is 1.
     # @option opts [Integer] :page_size The size of per page.
     # @return [Array<User>]
     def users_get(opts = {})
@@ -6833,7 +7460,7 @@ module SwaggerClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :username Username for filtering results.
     # @option opts [String] :email Email for filtering results.
-    # @option opts [Integer] :page The page nubmer, default is 1.
+    # @option opts [Integer] :page The page number, default is 1.
     # @option opts [Integer] :page_size The size of per page.
     # @return [Array<(Array<User>, Fixnum, Hash)>] Array<User> data, response status code and response headers
     def users_get_with_http_info(opts = {})
@@ -6928,38 +7555,39 @@ module SwaggerClient
       end
       return data, status_code, headers
     end
-    # Search users by username, email
-    # This endpoint is to search the users by username, email. 
+    # Search users by username
+    # This endpoint is to search the users by username. 
+    # @param username Username for filtering results.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :username Username for filtering results.
-    # @option opts [String] :email Email for filtering results.
-    # @option opts [Integer] :page The page nubmer, default is 1.
+    # @option opts [Integer] :page The page number, default is 1.
     # @option opts [Integer] :page_size The size of per page.
     # @return [Array<UserSearch>]
-    def users_search_get(opts = {})
-      data, _status_code, _headers = users_search_get_with_http_info(opts)
+    def users_search_get(username, opts = {})
+      data, _status_code, _headers = users_search_get_with_http_info(username, opts)
       data
     end
 
-    # Search users by username, email
-    # This endpoint is to search the users by username, email. 
+    # Search users by username
+    # This endpoint is to search the users by username. 
+    # @param username Username for filtering results.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :username Username for filtering results.
-    # @option opts [String] :email Email for filtering results.
-    # @option opts [Integer] :page The page nubmer, default is 1.
+    # @option opts [Integer] :page The page number, default is 1.
     # @option opts [Integer] :page_size The size of per page.
     # @return [Array<(Array<UserSearch>, Fixnum, Hash)>] Array<UserSearch> data, response status code and response headers
-    def users_search_get_with_http_info(opts = {})
+    def users_search_get_with_http_info(username, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProductsApi.users_search_get ...'
+      end
+      # verify the required parameter 'username' is set
+      if @api_client.config.client_side_validation && username.nil?
+        fail ArgumentError, "Missing the required parameter 'username' when calling ProductsApi.users_search_get"
       end
       # resource path
       local_var_path = '/users/search'
 
       # query parameters
       query_params = {}
-      query_params[:'username'] = opts[:'username'] if !opts[:'username'].nil?
-      query_params[:'email'] = opts[:'email'] if !opts[:'email'].nil?
+      query_params[:'username'] = username
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
 

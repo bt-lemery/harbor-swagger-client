@@ -115,6 +115,8 @@ Class | Method | HTTP request | Description
 *SwaggerClient::ProductsApi* | [**configurations_put**](docs/ProductsApi.md#configurations_put) | **PUT** /configurations | Modify system configurations.
 *SwaggerClient::ProductsApi* | [**email_ping_post**](docs/ProductsApi.md#email_ping_post) | **POST** /email/ping | Test connection and authentication with email server.
 *SwaggerClient::ProductsApi* | [**health_get**](docs/ProductsApi.md#health_get) | **GET** /health | Health check API
+*SwaggerClient::ProductsApi* | [**internal_switchquota_put**](docs/ProductsApi.md#internal_switchquota_put) | **PUT** /internal/switchquota | Enable or disable quota.
+*SwaggerClient::ProductsApi* | [**internal_syncquota_post**](docs/ProductsApi.md#internal_syncquota_post) | **POST** /internal/syncquota | Sync quota from registry/chart to DB.
 *SwaggerClient::ProductsApi* | [**internal_syncregistry_post**](docs/ProductsApi.md#internal_syncregistry_post) | **POST** /internal/syncregistry | Sync repositories from registry to DB.
 *SwaggerClient::ProductsApi* | [**labels_get**](docs/ProductsApi.md#labels_get) | **GET** /labels | List labels according to the query strings.
 *SwaggerClient::ProductsApi* | [**labels_id_delete**](docs/ProductsApi.md#labels_id_delete) | **DELETE** /labels/{id} | Delete the label specified by ID.
@@ -150,13 +152,13 @@ Class | Method | HTTP request | Description
 *SwaggerClient::ProductsApi* | [**projects_project_id_robots_robot_id_get**](docs/ProductsApi.md#projects_project_id_robots_robot_id_get) | **GET** /projects/{project_id}/robots/{robot_id} | Return the infor of the specified robot account.
 *SwaggerClient::ProductsApi* | [**projects_project_id_robots_robot_id_put**](docs/ProductsApi.md#projects_project_id_robots_robot_id_put) | **PUT** /projects/{project_id}/robots/{robot_id} | Update status of robot account.
 *SwaggerClient::ProductsApi* | [**projects_project_id_summary_get**](docs/ProductsApi.md#projects_project_id_summary_get) | **GET** /projects/{project_id}/summary | Get summary of the project.
-*SwaggerClient::ProductsApi* | [**projects_project_id_webhook_jobs_get**](docs/ProductsApi.md#projects_project_id_webhook_jobs_get) | **GET** /projects/{project_id}/webhook/jobs | 
+*SwaggerClient::ProductsApi* | [**projects_project_id_webhook_jobs_get**](docs/ProductsApi.md#projects_project_id_webhook_jobs_get) | **GET** /projects/{project_id}/webhook/jobs | List project webhook jobs
 *SwaggerClient::ProductsApi* | [**projects_project_id_webhook_lasttrigger_get**](docs/ProductsApi.md#projects_project_id_webhook_lasttrigger_get) | **GET** /projects/{project_id}/webhook/lasttrigger | Get project webhook policy last trigger info
-*SwaggerClient::ProductsApi* | [**projects_project_id_webhook_policies_get**](docs/ProductsApi.md#projects_project_id_webhook_policies_get) | **GET** /projects/{project_id}/webhook/policies | 
+*SwaggerClient::ProductsApi* | [**projects_project_id_webhook_policies_get**](docs/ProductsApi.md#projects_project_id_webhook_policies_get) | **GET** /projects/{project_id}/webhook/policies | List project webhook policies.
 *SwaggerClient::ProductsApi* | [**projects_project_id_webhook_policies_policy_id_delete**](docs/ProductsApi.md#projects_project_id_webhook_policies_policy_id_delete) | **DELETE** /projects/{project_id}/webhook/policies/{policy_id} | Delete webhook policy of a project
 *SwaggerClient::ProductsApi* | [**projects_project_id_webhook_policies_policy_id_get**](docs/ProductsApi.md#projects_project_id_webhook_policies_policy_id_get) | **GET** /projects/{project_id}/webhook/policies/{policy_id} | Get project webhook policy
 *SwaggerClient::ProductsApi* | [**projects_project_id_webhook_policies_policy_id_put**](docs/ProductsApi.md#projects_project_id_webhook_policies_policy_id_put) | **PUT** /projects/{project_id}/webhook/policies/{policy_id} | Update webhook policy of a project.
-*SwaggerClient::ProductsApi* | [**projects_project_id_webhook_policies_post**](docs/ProductsApi.md#projects_project_id_webhook_policies_post) | **POST** /projects/{project_id}/webhook/policies | 
+*SwaggerClient::ProductsApi* | [**projects_project_id_webhook_policies_post**](docs/ProductsApi.md#projects_project_id_webhook_policies_post) | **POST** /projects/{project_id}/webhook/policies | Create project webhook policy.
 *SwaggerClient::ProductsApi* | [**projects_project_id_webhook_policies_test_post**](docs/ProductsApi.md#projects_project_id_webhook_policies_test_post) | **POST** /projects/{project_id}/webhook/policies/test | Test project webhook connection
 *SwaggerClient::ProductsApi* | [**registries_get**](docs/ProductsApi.md#registries_get) | **GET** /registries | List registries.
 *SwaggerClient::ProductsApi* | [**registries_id_delete**](docs/ProductsApi.md#registries_id_delete) | **DELETE** /registries/{id} | Delete specific registry.
@@ -196,6 +198,15 @@ Class | Method | HTTP request | Description
 *SwaggerClient::ProductsApi* | [**repositories_repo_name_tags_tag_scan_post**](docs/ProductsApi.md#repositories_repo_name_tags_tag_scan_post) | **POST** /repositories/{repo_name}/tags/{tag}/scan | Scan the image.
 *SwaggerClient::ProductsApi* | [**repositories_repo_name_tags_tag_vulnerability_details_get**](docs/ProductsApi.md#repositories_repo_name_tags_tag_vulnerability_details_get) | **GET** /repositories/{repo_name}/tags/{tag}/vulnerability/details | Get vulnerability details of the image.
 *SwaggerClient::ProductsApi* | [**repositories_top_get**](docs/ProductsApi.md#repositories_top_get) | **GET** /repositories/top | Get public repositories which are accessed most.
+*SwaggerClient::ProductsApi* | [**retentions_id_executions_eid_patch**](docs/ProductsApi.md#retentions_id_executions_eid_patch) | **PATCH** /retentions/{id}/executions/{eid} | Stop a Retention job
+*SwaggerClient::ProductsApi* | [**retentions_id_executions_eid_tasks_get**](docs/ProductsApi.md#retentions_id_executions_eid_tasks_get) | **GET** /retentions/{id}/executions/{eid}/tasks | Get Retention job tasks
+*SwaggerClient::ProductsApi* | [**retentions_id_executions_eid_tasks_tid_get**](docs/ProductsApi.md#retentions_id_executions_eid_tasks_tid_get) | **GET** /retentions/{id}/executions/{eid}/tasks/{tid} | Get Retention job task log
+*SwaggerClient::ProductsApi* | [**retentions_id_executions_get**](docs/ProductsApi.md#retentions_id_executions_get) | **GET** /retentions/{id}/executions | Get a Retention job
+*SwaggerClient::ProductsApi* | [**retentions_id_executions_post**](docs/ProductsApi.md#retentions_id_executions_post) | **POST** /retentions/{id}/executions | Trigger a Retention job
+*SwaggerClient::ProductsApi* | [**retentions_id_get**](docs/ProductsApi.md#retentions_id_get) | **GET** /retentions/{id} | Get Retention Policy
+*SwaggerClient::ProductsApi* | [**retentions_id_put**](docs/ProductsApi.md#retentions_id_put) | **PUT** /retentions/{id} | Update Retention Policy
+*SwaggerClient::ProductsApi* | [**retentions_metadatas_get**](docs/ProductsApi.md#retentions_metadatas_get) | **GET** /retentions/metadatas | Get Retention Metadatas
+*SwaggerClient::ProductsApi* | [**retentions_post**](docs/ProductsApi.md#retentions_post) | **POST** /retentions | Create Retention Policy
 *SwaggerClient::ProductsApi* | [**search_get**](docs/ProductsApi.md#search_get) | **GET** /search | Search for projects, repositories and helm charts
 *SwaggerClient::ProductsApi* | [**statistics_get**](docs/ProductsApi.md#statistics_get) | **GET** /statistics | Get projects number and repositories number relevant to the user
 *SwaggerClient::ProductsApi* | [**system_cve_whitelist_get**](docs/ProductsApi.md#system_cve_whitelist_get) | **GET** /system/CVEWhitelist | Get the system level whitelist of CVE.
@@ -222,7 +233,7 @@ Class | Method | HTTP request | Description
 *SwaggerClient::ProductsApi* | [**users_current_permissions_get**](docs/ProductsApi.md#users_current_permissions_get) | **GET** /users/current/permissions | Get current user permissions.
 *SwaggerClient::ProductsApi* | [**users_get**](docs/ProductsApi.md#users_get) | **GET** /users | Get registered users of Harbor.
 *SwaggerClient::ProductsApi* | [**users_post**](docs/ProductsApi.md#users_post) | **POST** /users | Creates a new user account.
-*SwaggerClient::ProductsApi* | [**users_search_get**](docs/ProductsApi.md#users_search_get) | **GET** /users/search | Search users by username, email
+*SwaggerClient::ProductsApi* | [**users_search_get**](docs/ProductsApi.md#users_search_get) | **GET** /users/search | Search users by username
 *SwaggerClient::ProductsApi* | [**users_user_id_delete**](docs/ProductsApi.md#users_user_id_delete) | **DELETE** /users/{user_id} | Mark a registered user as be removed.
 *SwaggerClient::ProductsApi* | [**users_user_id_gen_cli_secret_post**](docs/ProductsApi.md#users_user_id_gen_cli_secret_post) | **POST** /users/{user_id}/gen_cli_secret | Generate new CLI secret for a user.
 *SwaggerClient::ProductsApi* | [**users_user_id_get**](docs/ProductsApi.md#users_user_id_get) | **GET** /users/{user_id} | Get a user's profile.
@@ -232,6 +243,14 @@ Class | Method | HTTP request | Description
 *SwaggerClient::QuotaApi* | [**quotas_get**](docs/QuotaApi.md#quotas_get) | **GET** /quotas | List quotas
 *SwaggerClient::QuotaApi* | [**quotas_id_get**](docs/QuotaApi.md#quotas_id_get) | **GET** /quotas/{id} | Get the specified quota
 *SwaggerClient::QuotaApi* | [**quotas_id_put**](docs/QuotaApi.md#quotas_id_put) | **PUT** /quotas/{id} | Update the specified quota
+*SwaggerClient::RetentionApi* | [**retentions_id_executions_eid_patch**](docs/RetentionApi.md#retentions_id_executions_eid_patch) | **PATCH** /retentions/{id}/executions/{eid} | Stop a Retention job
+*SwaggerClient::RetentionApi* | [**retentions_id_executions_eid_tasks_get**](docs/RetentionApi.md#retentions_id_executions_eid_tasks_get) | **GET** /retentions/{id}/executions/{eid}/tasks | Get Retention job tasks
+*SwaggerClient::RetentionApi* | [**retentions_id_executions_eid_tasks_tid_get**](docs/RetentionApi.md#retentions_id_executions_eid_tasks_tid_get) | **GET** /retentions/{id}/executions/{eid}/tasks/{tid} | Get Retention job task log
+*SwaggerClient::RetentionApi* | [**retentions_id_executions_get**](docs/RetentionApi.md#retentions_id_executions_get) | **GET** /retentions/{id}/executions | Get a Retention job
+*SwaggerClient::RetentionApi* | [**retentions_id_executions_post**](docs/RetentionApi.md#retentions_id_executions_post) | **POST** /retentions/{id}/executions | Trigger a Retention job
+*SwaggerClient::RetentionApi* | [**retentions_id_get**](docs/RetentionApi.md#retentions_id_get) | **GET** /retentions/{id} | Get Retention Policy
+*SwaggerClient::RetentionApi* | [**retentions_metadatas_get**](docs/RetentionApi.md#retentions_metadatas_get) | **GET** /retentions/metadatas | Get Retention Metadatas
+*SwaggerClient::RetentionApi* | [**retentions_post**](docs/RetentionApi.md#retentions_post) | **POST** /retentions | Create Retention Policy
 *SwaggerClient::RobotAccountApi* | [**projects_project_id_robots_get**](docs/RobotAccountApi.md#projects_project_id_robots_get) | **GET** /projects/{project_id}/robots | Get all robot accounts of specified project
 *SwaggerClient::RobotAccountApi* | [**projects_project_id_robots_post**](docs/RobotAccountApi.md#projects_project_id_robots_post) | **POST** /projects/{project_id}/robots | Create a robot account for project
 *SwaggerClient::RobotAccountApi* | [**projects_project_id_robots_robot_id_delete**](docs/RobotAccountApi.md#projects_project_id_robots_robot_id_delete) | **DELETE** /projects/{project_id}/robots/{robot_id} | Delete the specified robot account
@@ -245,6 +264,8 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [SwaggerClient::AccessLog](docs/AccessLog.md)
+ - [SwaggerClient::Action](docs/Action.md)
+ - [SwaggerClient::Action1](docs/Action1.md)
  - [SwaggerClient::AdminJobSchedule](docs/AdminJobSchedule.md)
  - [SwaggerClient::AdminJobScheduleObj](docs/AdminJobScheduleObj.md)
  - [SwaggerClient::BoolConfigItem](docs/BoolConfigItem.md)
@@ -300,6 +321,7 @@ Class | Method | HTTP request | Description
  - [SwaggerClient::PutRegistry](docs/PutRegistry.md)
  - [SwaggerClient::Quota](docs/Quota.md)
  - [SwaggerClient::QuotaRefObject](docs/QuotaRefObject.md)
+ - [SwaggerClient::QuotaSwitcher](docs/QuotaSwitcher.md)
  - [SwaggerClient::QuotaUpdateReq](docs/QuotaUpdateReq.md)
  - [SwaggerClient::Registry](docs/Registry.md)
  - [SwaggerClient::RegistryCredential](docs/RegistryCredential.md)
@@ -315,6 +337,17 @@ Class | Method | HTTP request | Description
  - [SwaggerClient::Resource](docs/Resource.md)
  - [SwaggerClient::ResourceList](docs/ResourceList.md)
  - [SwaggerClient::RetagReq](docs/RetagReq.md)
+ - [SwaggerClient::RetentionExecution](docs/RetentionExecution.md)
+ - [SwaggerClient::RetentionExecutionTask](docs/RetentionExecutionTask.md)
+ - [SwaggerClient::RetentionMetadata](docs/RetentionMetadata.md)
+ - [SwaggerClient::RetentionPolicy](docs/RetentionPolicy.md)
+ - [SwaggerClient::RetentionPolicyScope](docs/RetentionPolicyScope.md)
+ - [SwaggerClient::RetentionRule](docs/RetentionRule.md)
+ - [SwaggerClient::RetentionRuleMetadata](docs/RetentionRuleMetadata.md)
+ - [SwaggerClient::RetentionRuleParamMetadata](docs/RetentionRuleParamMetadata.md)
+ - [SwaggerClient::RetentionRuleTrigger](docs/RetentionRuleTrigger.md)
+ - [SwaggerClient::RetentionSelector](docs/RetentionSelector.md)
+ - [SwaggerClient::RetentionSelectorMetadata](docs/RetentionSelectorMetadata.md)
  - [SwaggerClient::RobotAccount](docs/RobotAccount.md)
  - [SwaggerClient::RobotAccountAccess](docs/RobotAccountAccess.md)
  - [SwaggerClient::RobotAccountCreate](docs/RobotAccountCreate.md)

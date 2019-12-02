@@ -20,6 +20,8 @@ Method | HTTP request | Description
 [**configurations_put**](ProductsApi.md#configurations_put) | **PUT** /configurations | Modify system configurations.
 [**email_ping_post**](ProductsApi.md#email_ping_post) | **POST** /email/ping | Test connection and authentication with email server.
 [**health_get**](ProductsApi.md#health_get) | **GET** /health | Health check API
+[**internal_switchquota_put**](ProductsApi.md#internal_switchquota_put) | **PUT** /internal/switchquota | Enable or disable quota.
+[**internal_syncquota_post**](ProductsApi.md#internal_syncquota_post) | **POST** /internal/syncquota | Sync quota from registry/chart to DB.
 [**internal_syncregistry_post**](ProductsApi.md#internal_syncregistry_post) | **POST** /internal/syncregistry | Sync repositories from registry to DB.
 [**labels_get**](ProductsApi.md#labels_get) | **GET** /labels | List labels according to the query strings.
 [**labels_id_delete**](ProductsApi.md#labels_id_delete) | **DELETE** /labels/{id} | Delete the label specified by ID.
@@ -55,13 +57,13 @@ Method | HTTP request | Description
 [**projects_project_id_robots_robot_id_get**](ProductsApi.md#projects_project_id_robots_robot_id_get) | **GET** /projects/{project_id}/robots/{robot_id} | Return the infor of the specified robot account.
 [**projects_project_id_robots_robot_id_put**](ProductsApi.md#projects_project_id_robots_robot_id_put) | **PUT** /projects/{project_id}/robots/{robot_id} | Update status of robot account.
 [**projects_project_id_summary_get**](ProductsApi.md#projects_project_id_summary_get) | **GET** /projects/{project_id}/summary | Get summary of the project.
-[**projects_project_id_webhook_jobs_get**](ProductsApi.md#projects_project_id_webhook_jobs_get) | **GET** /projects/{project_id}/webhook/jobs | 
+[**projects_project_id_webhook_jobs_get**](ProductsApi.md#projects_project_id_webhook_jobs_get) | **GET** /projects/{project_id}/webhook/jobs | List project webhook jobs
 [**projects_project_id_webhook_lasttrigger_get**](ProductsApi.md#projects_project_id_webhook_lasttrigger_get) | **GET** /projects/{project_id}/webhook/lasttrigger | Get project webhook policy last trigger info
-[**projects_project_id_webhook_policies_get**](ProductsApi.md#projects_project_id_webhook_policies_get) | **GET** /projects/{project_id}/webhook/policies | 
+[**projects_project_id_webhook_policies_get**](ProductsApi.md#projects_project_id_webhook_policies_get) | **GET** /projects/{project_id}/webhook/policies | List project webhook policies.
 [**projects_project_id_webhook_policies_policy_id_delete**](ProductsApi.md#projects_project_id_webhook_policies_policy_id_delete) | **DELETE** /projects/{project_id}/webhook/policies/{policy_id} | Delete webhook policy of a project
 [**projects_project_id_webhook_policies_policy_id_get**](ProductsApi.md#projects_project_id_webhook_policies_policy_id_get) | **GET** /projects/{project_id}/webhook/policies/{policy_id} | Get project webhook policy
 [**projects_project_id_webhook_policies_policy_id_put**](ProductsApi.md#projects_project_id_webhook_policies_policy_id_put) | **PUT** /projects/{project_id}/webhook/policies/{policy_id} | Update webhook policy of a project.
-[**projects_project_id_webhook_policies_post**](ProductsApi.md#projects_project_id_webhook_policies_post) | **POST** /projects/{project_id}/webhook/policies | 
+[**projects_project_id_webhook_policies_post**](ProductsApi.md#projects_project_id_webhook_policies_post) | **POST** /projects/{project_id}/webhook/policies | Create project webhook policy.
 [**projects_project_id_webhook_policies_test_post**](ProductsApi.md#projects_project_id_webhook_policies_test_post) | **POST** /projects/{project_id}/webhook/policies/test | Test project webhook connection
 [**registries_get**](ProductsApi.md#registries_get) | **GET** /registries | List registries.
 [**registries_id_delete**](ProductsApi.md#registries_id_delete) | **DELETE** /registries/{id} | Delete specific registry.
@@ -101,6 +103,15 @@ Method | HTTP request | Description
 [**repositories_repo_name_tags_tag_scan_post**](ProductsApi.md#repositories_repo_name_tags_tag_scan_post) | **POST** /repositories/{repo_name}/tags/{tag}/scan | Scan the image.
 [**repositories_repo_name_tags_tag_vulnerability_details_get**](ProductsApi.md#repositories_repo_name_tags_tag_vulnerability_details_get) | **GET** /repositories/{repo_name}/tags/{tag}/vulnerability/details | Get vulnerability details of the image.
 [**repositories_top_get**](ProductsApi.md#repositories_top_get) | **GET** /repositories/top | Get public repositories which are accessed most.
+[**retentions_id_executions_eid_patch**](ProductsApi.md#retentions_id_executions_eid_patch) | **PATCH** /retentions/{id}/executions/{eid} | Stop a Retention job
+[**retentions_id_executions_eid_tasks_get**](ProductsApi.md#retentions_id_executions_eid_tasks_get) | **GET** /retentions/{id}/executions/{eid}/tasks | Get Retention job tasks
+[**retentions_id_executions_eid_tasks_tid_get**](ProductsApi.md#retentions_id_executions_eid_tasks_tid_get) | **GET** /retentions/{id}/executions/{eid}/tasks/{tid} | Get Retention job task log
+[**retentions_id_executions_get**](ProductsApi.md#retentions_id_executions_get) | **GET** /retentions/{id}/executions | Get a Retention job
+[**retentions_id_executions_post**](ProductsApi.md#retentions_id_executions_post) | **POST** /retentions/{id}/executions | Trigger a Retention job
+[**retentions_id_get**](ProductsApi.md#retentions_id_get) | **GET** /retentions/{id} | Get Retention Policy
+[**retentions_id_put**](ProductsApi.md#retentions_id_put) | **PUT** /retentions/{id} | Update Retention Policy
+[**retentions_metadatas_get**](ProductsApi.md#retentions_metadatas_get) | **GET** /retentions/metadatas | Get Retention Metadatas
+[**retentions_post**](ProductsApi.md#retentions_post) | **POST** /retentions | Create Retention Policy
 [**search_get**](ProductsApi.md#search_get) | **GET** /search | Search for projects, repositories and helm charts
 [**statistics_get**](ProductsApi.md#statistics_get) | **GET** /statistics | Get projects number and repositories number relevant to the user
 [**system_cve_whitelist_get**](ProductsApi.md#system_cve_whitelist_get) | **GET** /system/CVEWhitelist | Get the system level whitelist of CVE.
@@ -127,7 +138,7 @@ Method | HTTP request | Description
 [**users_current_permissions_get**](ProductsApi.md#users_current_permissions_get) | **GET** /users/current/permissions | Get current user permissions.
 [**users_get**](ProductsApi.md#users_get) | **GET** /users | Get registered users of Harbor.
 [**users_post**](ProductsApi.md#users_post) | **POST** /users | Creates a new user account.
-[**users_search_get**](ProductsApi.md#users_search_get) | **GET** /users/search | Search users by username, email
+[**users_search_get**](ProductsApi.md#users_search_get) | **GET** /users/search | Search users by username
 [**users_user_id_delete**](ProductsApi.md#users_user_id_delete) | **DELETE** /users/{user_id} | Mark a registered user as be removed.
 [**users_user_id_gen_cli_secret_post**](ProductsApi.md#users_user_id_gen_cli_secret_post) | **POST** /users/{user_id}/gen_cli_secret | Generate new CLI secret for a user.
 [**users_user_id_get**](ProductsApi.md#users_user_id_get) | **GET** /users/{user_id} | Get a user&#39;s profile.
@@ -1013,6 +1024,104 @@ This endpoint does not need any parameter.
 
 
 
+# **internal_switchquota_put**
+> internal_switchquota_put(switcher)
+
+Enable or disable quota.
+
+This endpoint is for enable/disable quota. When quota is disabled, no resource require/release in image/chart push and delete. 
+
+### Example
+```ruby
+# load the gem
+require 'harbor_swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = SwaggerClient::ProductsApi.new
+
+switcher = SwaggerClient::QuotaSwitcher.new # QuotaSwitcher | 
+
+
+begin
+  #Enable or disable quota.
+  api_instance.internal_switchquota_put(switcher)
+rescue SwaggerClient::ApiError => e
+  puts "Exception when calling ProductsApi->internal_switchquota_put: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **switcher** | [**QuotaSwitcher**](QuotaSwitcher.md)|  | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, text/plain
+
+
+
+# **internal_syncquota_post**
+> internal_syncquota_post
+
+Sync quota from registry/chart to DB.
+
+This endpoint is for syncing quota usage of registry/chart with database. 
+
+### Example
+```ruby
+# load the gem
+require 'harbor_swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = SwaggerClient::ProductsApi.new
+
+begin
+  #Sync quota from registry/chart to DB.
+  api_instance.internal_syncquota_post
+rescue SwaggerClient::ApiError => e
+  puts "Exception when calling ProductsApi->internal_syncquota_post: #{e}"
+end
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, text/plain
+
+
+
 # **internal_syncregistry_post**
 > internal_syncregistry_post
 
@@ -1629,7 +1738,7 @@ opts = {
   operation: 'operation_example', # String | The operation
   begin_timestamp: 'begin_timestamp_example', # String | The begin timestamp
   end_timestamp: 'end_timestamp_example', # String | The end timestamp
-  page: 56, # Integer | The page nubmer, default is 1.
+  page: 56, # Integer | The page number, default is 1.
   page_size: 56 # Integer | The size of per page, default is 10, maximum is 100.
 }
 
@@ -1652,7 +1761,7 @@ Name | Type | Description  | Notes
  **operation** | **String**| The operation | [optional] 
  **begin_timestamp** | **String**| The begin timestamp | [optional] 
  **end_timestamp** | **String**| The end timestamp | [optional] 
- **page** | **Integer**| The page nubmer, default is 1. | [optional] 
+ **page** | **Integer**| The page number, default is 1. | [optional] 
  **page_size** | **Integer**| The size of per page, default is 10, maximum is 100. | [optional] 
 
 ### Return type
@@ -1694,7 +1803,7 @@ opts = {
   name: 'name_example', # String | The name of project.
   public: true, # BOOLEAN | The project is public or private.
   owner: 'owner_example', # String | The name of project owner.
-  page: 56, # Integer | The page nubmer, default is 1.
+  page: 56, # Integer | The page number, default is 1.
   page_size: 56 # Integer | The size of per page, default is 10, maximum is 100.
 }
 
@@ -1714,7 +1823,7 @@ Name | Type | Description  | Notes
  **name** | **String**| The name of project. | [optional] 
  **public** | **BOOLEAN**| The project is public or private. | [optional] 
  **owner** | **String**| The name of project owner. | [optional] 
- **page** | **Integer**| The page nubmer, default is 1. | [optional] 
+ **page** | **Integer**| The page number, default is 1. | [optional] 
  **page_size** | **Integer**| The size of per page, default is 10, maximum is 100. | [optional] 
 
 ### Return type
@@ -1970,7 +2079,7 @@ opts = {
   operation: 'operation_example', # String | The operation
   begin_timestamp: 'begin_timestamp_example', # String | The begin timestamp
   end_timestamp: 'end_timestamp_example', # String | The end timestamp
-  page: 56, # Integer | The page nubmer, default is 1.
+  page: 56, # Integer | The page number, default is 1.
   page_size: 56 # Integer | The size of per page, default is 10, maximum is 100.
 }
 
@@ -1994,7 +2103,7 @@ Name | Type | Description  | Notes
  **operation** | **String**| The operation | [optional] 
  **begin_timestamp** | **String**| The begin timestamp | [optional] 
  **end_timestamp** | **String**| The end timestamp | [optional] 
- **page** | **Integer**| The page nubmer, default is 1. | [optional] 
+ **page** | **Integer**| The page number, default is 1. | [optional] 
  **page_size** | **Integer**| The size of per page, default is 10, maximum is 100. | [optional] 
 
 ### Return type
@@ -2956,7 +3065,7 @@ Name | Type | Description  | Notes
 # **projects_project_id_webhook_jobs_get**
 > Array&lt;WebhookJob&gt; projects_project_id_webhook_jobs_get(project_id, policy_id)
 
-
+List project webhook jobs
 
 This endpoint returns webhook jobs of a project. 
 
@@ -2979,6 +3088,7 @@ policy_id = 789 # Integer | The policy ID.
 
 
 begin
+  #List project webhook jobs
   result = api_instance.projects_project_id_webhook_jobs_get(project_id, policy_id)
   p result
 rescue SwaggerClient::ApiError => e
@@ -3064,7 +3174,7 @@ Name | Type | Description  | Notes
 # **projects_project_id_webhook_policies_get**
 > Array&lt;WebhookPolicy&gt; projects_project_id_webhook_policies_get(project_id)
 
-
+List project webhook policies.
 
 This endpoint returns webhook policies of a project. 
 
@@ -3085,6 +3195,7 @@ project_id = 789 # Integer | Relevant project ID.
 
 
 begin
+  #List project webhook policies.
   result = api_instance.projects_project_id_webhook_policies_get(project_id)
   p result
 rescue SwaggerClient::ApiError => e
@@ -3135,7 +3246,7 @@ api_instance = SwaggerClient::ProductsApi.new
 
 project_id = 789 # Integer | Relevant project ID.
 
-policy_id = nil # Object | The id of webhook policy.
+policy_id = 789 # Integer | The id of webhook policy.
 
 
 begin
@@ -3151,7 +3262,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **Integer**| Relevant project ID. | 
- **policy_id** | [**Object**](.md)| The id of webhook policy. | 
+ **policy_id** | **Integer**| The id of webhook policy. | 
 
 ### Return type
 
@@ -3190,7 +3301,7 @@ api_instance = SwaggerClient::ProductsApi.new
 
 project_id = 789 # Integer | Relevant project ID.
 
-policy_id = nil # Object | The id of webhook policy.
+policy_id = 789 # Integer | The id of webhook policy.
 
 
 begin
@@ -3207,7 +3318,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **Integer**| Relevant project ID. | 
- **policy_id** | [**Object**](.md)| The id of webhook policy. | 
+ **policy_id** | **Integer**| The id of webhook policy. | 
 
 ### Return type
 
@@ -3246,7 +3357,7 @@ api_instance = SwaggerClient::ProductsApi.new
 
 project_id = 789 # Integer | Relevant project ID.
 
-policy_id = nil # Object | The id of webhook policy.
+policy_id = 789 # Integer | The id of webhook policy.
 
 policy = SwaggerClient::WebhookPolicy.new # WebhookPolicy | All properties needed except \"id\", \"project_id\", \"creation_time\", \"update_time\".
 
@@ -3264,7 +3375,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **Integer**| Relevant project ID. | 
- **policy_id** | [**Object**](.md)| The id of webhook policy. | 
+ **policy_id** | **Integer**| The id of webhook policy. | 
  **policy** | [**WebhookPolicy**](WebhookPolicy.md)| All properties needed except \&quot;id\&quot;, \&quot;project_id\&quot;, \&quot;creation_time\&quot;, \&quot;update_time\&quot;. | 
 
 ### Return type
@@ -3285,7 +3396,7 @@ nil (empty response body)
 # **projects_project_id_webhook_policies_post**
 > projects_project_id_webhook_policies_post(project_id, policy)
 
-
+Create project webhook policy.
 
 This endpoint create a webhook policy if the project does not have one. 
 
@@ -3308,6 +3419,7 @@ policy = SwaggerClient::WebhookPolicy.new # WebhookPolicy | Properties \"targets
 
 
 begin
+  #Create project webhook policy.
   api_instance.projects_project_id_webhook_policies_post(project_id, policy)
 rescue SwaggerClient::ApiError => e
   puts "Exception when calling ProductsApi->projects_project_id_webhook_policies_post: #{e}"
@@ -4489,7 +4601,7 @@ opts = {
   q: 'q_example', # String | Repo name for filtering results.
   sort: 'sort_example', # String | Sort method, valid values include: 'name', '-name', 'creation_time', '-creation_time', 'update_time', '-update_time'. Here '-' stands for descending order. 
   label_id: 56, # Integer | The ID of label used to filter the result.
-  page: 56, # Integer | The page nubmer, default is 1.
+  page: 56, # Integer | The page number, default is 1.
   page_size: 56 # Integer | The size of per page, default is 10, maximum is 100.
 }
 
@@ -4510,7 +4622,7 @@ Name | Type | Description  | Notes
  **q** | **String**| Repo name for filtering results. | [optional] 
  **sort** | **String**| Sort method, valid values include: &#39;name&#39;, &#39;-name&#39;, &#39;creation_time&#39;, &#39;-creation_time&#39;, &#39;update_time&#39;, &#39;-update_time&#39;. Here &#39;-&#39; stands for descending order.  | [optional] 
  **label_id** | **Integer**| The ID of label used to filter the result. | [optional] 
- **page** | **Integer**| The page nubmer, default is 1. | [optional] 
+ **page** | **Integer**| The page number, default is 1. | [optional] 
  **page_size** | **Integer**| The size of per page, default is 10, maximum is 100. | [optional] 
 
 ### Return type
@@ -4874,7 +4986,8 @@ api_instance = SwaggerClient::ProductsApi.new
 repo_name = 'repo_name_example' # String | Relevant repository name.
 
 opts = { 
-  label_ids: 'label_ids_example' # String | A list of comma separated label IDs.
+  label_id: 'label_id_example', # String | A label ID.
+  detail: true # BOOLEAN | Bool value indicating whether return detailed information of the tag, such as vulnerability scan info, if set to false, only tag name is returned.
 }
 
 begin
@@ -4891,7 +5004,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **repo_name** | **String**| Relevant repository name. | 
- **label_ids** | **String**| A list of comma separated label IDs. | [optional] 
+ **label_id** | **String**| A label ID. | [optional] 
+ **detail** | **BOOLEAN**| Bool value indicating whether return detailed information of the tag, such as vulnerability scan info, if set to false, only tag name is returned. | [optional] 
 
 ### Return type
 
@@ -5459,6 +5573,494 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Array&lt;Repository&gt;**](Repository.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, text/plain
+
+
+
+# **retentions_id_executions_eid_patch**
+> retentions_id_executions_eid_patch(id, eid, action)
+
+Stop a Retention job
+
+Stop a Retention job, only support \"stop\" action now.
+
+### Example
+```ruby
+# load the gem
+require 'harbor_swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = SwaggerClient::ProductsApi.new
+
+id = 789 # Integer | Retention ID.
+
+eid = 789 # Integer | Retention execution ID.
+
+action = SwaggerClient::Action1.new # Action1 | The action, only support \"stop\" now.
+
+
+begin
+  #Stop a Retention job
+  api_instance.retentions_id_executions_eid_patch(id, eid, action)
+rescue SwaggerClient::ApiError => e
+  puts "Exception when calling ProductsApi->retentions_id_executions_eid_patch: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer**| Retention ID. | 
+ **eid** | **Integer**| Retention execution ID. | 
+ **action** | [**Action1**](Action1.md)| The action, only support \&quot;stop\&quot; now. | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, text/plain
+
+
+
+# **retentions_id_executions_eid_tasks_get**
+> Array&lt;RetentionExecutionTask&gt; retentions_id_executions_eid_tasks_get(id, eid)
+
+Get Retention job tasks
+
+Get Retention job tasks, each repository as a task.
+
+### Example
+```ruby
+# load the gem
+require 'harbor_swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = SwaggerClient::ProductsApi.new
+
+id = 789 # Integer | Retention ID.
+
+eid = 789 # Integer | Retention execution ID.
+
+
+begin
+  #Get Retention job tasks
+  result = api_instance.retentions_id_executions_eid_tasks_get(id, eid)
+  p result
+rescue SwaggerClient::ApiError => e
+  puts "Exception when calling ProductsApi->retentions_id_executions_eid_tasks_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer**| Retention ID. | 
+ **eid** | **Integer**| Retention execution ID. | 
+
+### Return type
+
+[**Array&lt;RetentionExecutionTask&gt;**](RetentionExecutionTask.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, text/plain
+
+
+
+# **retentions_id_executions_eid_tasks_tid_get**
+> String retentions_id_executions_eid_tasks_tid_get(id, eid, tid)
+
+Get Retention job task log
+
+Get Retention job task log, tags ratain or deletion detail will be shown in a table.
+
+### Example
+```ruby
+# load the gem
+require 'harbor_swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = SwaggerClient::ProductsApi.new
+
+id = 789 # Integer | Retention ID.
+
+eid = 789 # Integer | Retention execution ID.
+
+tid = 789 # Integer | Retention execution ID.
+
+
+begin
+  #Get Retention job task log
+  result = api_instance.retentions_id_executions_eid_tasks_tid_get(id, eid, tid)
+  p result
+rescue SwaggerClient::ApiError => e
+  puts "Exception when calling ProductsApi->retentions_id_executions_eid_tasks_tid_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer**| Retention ID. | 
+ **eid** | **Integer**| Retention execution ID. | 
+ **tid** | **Integer**| Retention execution ID. | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, text/plain
+
+
+
+# **retentions_id_executions_get**
+> Array&lt;RetentionExecution&gt; retentions_id_executions_get(id)
+
+Get a Retention job
+
+Get a Retention job, job status may be delayed before job service schedule it up.
+
+### Example
+```ruby
+# load the gem
+require 'harbor_swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = SwaggerClient::ProductsApi.new
+
+id = 789 # Integer | Retention ID.
+
+
+begin
+  #Get a Retention job
+  result = api_instance.retentions_id_executions_get(id)
+  p result
+rescue SwaggerClient::ApiError => e
+  puts "Exception when calling ProductsApi->retentions_id_executions_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer**| Retention ID. | 
+
+### Return type
+
+[**Array&lt;RetentionExecution&gt;**](RetentionExecution.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, text/plain
+
+
+
+# **retentions_id_executions_post**
+> retentions_id_executions_post(id, action)
+
+Trigger a Retention job
+
+Trigger a Retention job, if dry_run is True, nothing would be deleted actually.
+
+### Example
+```ruby
+# load the gem
+require 'harbor_swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = SwaggerClient::ProductsApi.new
+
+id = 789 # Integer | Retention ID.
+
+action = SwaggerClient::Action.new # Action | 
+
+
+begin
+  #Trigger a Retention job
+  api_instance.retentions_id_executions_post(id, action)
+rescue SwaggerClient::ApiError => e
+  puts "Exception when calling ProductsApi->retentions_id_executions_post: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer**| Retention ID. | 
+ **action** | [**Action**](Action.md)|  | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, text/plain
+
+
+
+# **retentions_id_get**
+> RetentionPolicy retentions_id_get(id)
+
+Get Retention Policy
+
+Get Retention Policy.
+
+### Example
+```ruby
+# load the gem
+require 'harbor_swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = SwaggerClient::ProductsApi.new
+
+id = 789 # Integer | Retention ID.
+
+
+begin
+  #Get Retention Policy
+  result = api_instance.retentions_id_get(id)
+  p result
+rescue SwaggerClient::ApiError => e
+  puts "Exception when calling ProductsApi->retentions_id_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer**| Retention ID. | 
+
+### Return type
+
+[**RetentionPolicy**](RetentionPolicy.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, text/plain
+
+
+
+# **retentions_id_put**
+> retentions_id_put(id, policy)
+
+Update Retention Policy
+
+Update Retention Policy, you can reference metadatas API for the policy model. You can check project metadatas to find whether a retention policy is already binded. This method should only be called when retention policy has already binded to project. 
+
+### Example
+```ruby
+# load the gem
+require 'harbor_swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = SwaggerClient::ProductsApi.new
+
+id = 789 # Integer | Retention ID.
+
+policy = SwaggerClient::RetentionPolicy.new # RetentionPolicy | 
+
+
+begin
+  #Update Retention Policy
+  api_instance.retentions_id_put(id, policy)
+rescue SwaggerClient::ApiError => e
+  puts "Exception when calling ProductsApi->retentions_id_put: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer**| Retention ID. | 
+ **policy** | [**RetentionPolicy**](RetentionPolicy.md)|  | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, text/plain
+
+
+
+# **retentions_metadatas_get**
+> RetentionMetadata retentions_metadatas_get
+
+Get Retention Metadatas
+
+Get Retention Metadatas.
+
+### Example
+```ruby
+# load the gem
+require 'harbor_swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = SwaggerClient::ProductsApi.new
+
+begin
+  #Get Retention Metadatas
+  result = api_instance.retentions_metadatas_get
+  p result
+rescue SwaggerClient::ApiError => e
+  puts "Exception when calling ProductsApi->retentions_metadatas_get: #{e}"
+end
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**RetentionMetadata**](RetentionMetadata.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, text/plain
+
+
+
+# **retentions_post**
+> retentions_post(policy)
+
+Create Retention Policy
+
+Create Retention Policy, you can reference metadatas API for the policy model. You can check project metadatas to find whether a retention policy is already binded. This method should only be called when no retention policy binded to project yet. 
+
+### Example
+```ruby
+# load the gem
+require 'harbor_swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = SwaggerClient::ProductsApi.new
+
+policy = SwaggerClient::RetentionPolicy.new # RetentionPolicy | Create Retention Policy successfully.
+
+
+begin
+  #Create Retention Policy
+  api_instance.retentions_post(policy)
+rescue SwaggerClient::ApiError => e
+  puts "Exception when calling ProductsApi->retentions_post: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **policy** | [**RetentionPolicy**](RetentionPolicy.md)| Create Retention Policy successfully. | 
+
+### Return type
+
+nil (empty response body)
 
 ### Authorization
 
@@ -6705,7 +7307,7 @@ api_instance = SwaggerClient::ProductsApi.new
 opts = { 
   username: 'username_example', # String | Username for filtering results.
   email: 'email_example', # String | Email for filtering results.
-  page: 56, # Integer | The page nubmer, default is 1.
+  page: 56, # Integer | The page number, default is 1.
   page_size: 56 # Integer | The size of per page.
 }
 
@@ -6724,7 +7326,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| Username for filtering results. | [optional] 
  **email** | **String**| Email for filtering results. | [optional] 
- **page** | **Integer**| The page nubmer, default is 1. | [optional] 
+ **page** | **Integer**| The page number, default is 1. | [optional] 
  **page_size** | **Integer**| The size of per page. | [optional] 
 
 ### Return type
@@ -6795,11 +7397,11 @@ nil (empty response body)
 
 
 # **users_search_get**
-> Array&lt;UserSearch&gt; users_search_get(opts)
+> Array&lt;UserSearch&gt; users_search_get(username, opts)
 
-Search users by username, email
+Search users by username
 
-This endpoint is to search the users by username, email. 
+This endpoint is to search the users by username. 
 
 ### Example
 ```ruby
@@ -6814,16 +7416,16 @@ end
 
 api_instance = SwaggerClient::ProductsApi.new
 
+username = 'username_example' # String | Username for filtering results.
+
 opts = { 
-  username: 'username_example', # String | Username for filtering results.
-  email: 'email_example', # String | Email for filtering results.
-  page: 56, # Integer | The page nubmer, default is 1.
+  page: 56, # Integer | The page number, default is 1.
   page_size: 56 # Integer | The size of per page.
 }
 
 begin
-  #Search users by username, email
-  result = api_instance.users_search_get(opts)
+  #Search users by username
+  result = api_instance.users_search_get(username, opts)
   p result
 rescue SwaggerClient::ApiError => e
   puts "Exception when calling ProductsApi->users_search_get: #{e}"
@@ -6834,9 +7436,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **String**| Username for filtering results. | [optional] 
- **email** | **String**| Email for filtering results. | [optional] 
- **page** | **Integer**| The page nubmer, default is 1. | [optional] 
+ **username** | **String**| Username for filtering results. | 
+ **page** | **Integer**| The page number, default is 1. | [optional] 
  **page_size** | **Integer**| The size of per page. | [optional] 
 
 ### Return type
