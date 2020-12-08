@@ -3,15 +3,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Integer** | The ID of repository. | [optional] 
-**name** | **String** | The name of repository. | [optional] 
-**project_id** | **Integer** | The project ID of repository. | [optional] 
-**description** | **String** | The description of repository. | [optional] 
-**pull_count** | **Integer** | The pull count of repository. | [optional] 
-**star_count** | **Integer** | The star count of repository. | [optional] 
-**tags_count** | **Integer** | The tags count of repository. | [optional] 
-**labels** | [**Array&lt;Label&gt;**](Label.md) | The label list. | [optional] 
-**creation_time** | **String** | The creation time of repository. | [optional] 
-**update_time** | **String** | The update time of repository. | [optional] 
+**id** | **Integer** | The ID of the repository | [optional] 
+**project_id** | **Integer** | The ID of the project that the repository belongs to | [optional] 
+**name** | **String** | The name of the repository | [optional] 
+**description** | **String** | The description of the repository | [optional] 
+**artifact_count** | **Integer** | The count of the artifacts inside the repository | [optional] 
+**pull_count** | **Integer** | The count that the artifact inside the repository pulled | [optional] 
+**creation_time** | **DateTime** | The creation time of the repository | [optional] 
+**update_time** | **DateTime** | The update time of the repository | [optional] 
 
 

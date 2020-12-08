@@ -3,7 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**resource** | **String** | The permission resoruce | [optional] 
-**action** | **String** | The permission action | [optional] 
+**kind** | **String** | The kind of the permission | [optional] 
+**namespace** | **String** | The namespace of the permission | [optional] 
+**access** | [**Array&lt;Access&gt;**](Access.md) |  | [optional] 
 
 
