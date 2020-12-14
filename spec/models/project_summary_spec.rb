@@ -68,12 +68,6 @@ describe 'ProjectSummary' do
     end
   end
 
-  describe 'test attribute "limited_guest_count"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   describe 'test attribute "quota"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

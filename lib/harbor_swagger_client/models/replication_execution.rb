@@ -15,17 +15,35 @@ require 'date'
 module SwaggerClient
   # The replication execution
   class ReplicationExecution
-    # The ID of the execution
+    # The ID
     attr_accessor :id
 
-    # The ID if the policy that the execution belongs to
+    # The policy ID
     attr_accessor :policy_id
 
-    # The status of the execution
+    # The status
     attr_accessor :status
+
+    # The status text
+    attr_accessor :status_text
 
     # The trigger mode
     attr_accessor :trigger
+
+    # The total count of all tasks
+    attr_accessor :total
+
+    # The count of failed tasks
+    attr_accessor :failed
+
+    # The count of succeed tasks
+    attr_accessor :succeed
+
+    # The count of in_progress tasks
+    attr_accessor :in_progress
+
+    # The count of stopped tasks
+    attr_accessor :stopped
 
     # The start time
     attr_accessor :start_time
@@ -33,39 +51,21 @@ module SwaggerClient
     # The end time
     attr_accessor :end_time
 
-    # The status text
-    attr_accessor :status_text
-
-    # The total count of all executions
-    attr_accessor :total
-
-    # The count of failed executions
-    attr_accessor :failed
-
-    # The count of succeed executions
-    attr_accessor :succeed
-
-    # The count of in_progress executions
-    attr_accessor :in_progress
-
-    # The count of stopped executions
-    attr_accessor :stopped
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
         :'policy_id' => :'policy_id',
         :'status' => :'status',
-        :'trigger' => :'trigger',
-        :'start_time' => :'start_time',
-        :'end_time' => :'end_time',
         :'status_text' => :'status_text',
+        :'trigger' => :'trigger',
         :'total' => :'total',
         :'failed' => :'failed',
         :'succeed' => :'succeed',
         :'in_progress' => :'in_progress',
-        :'stopped' => :'stopped'
+        :'stopped' => :'stopped',
+        :'start_time' => :'start_time',
+        :'end_time' => :'end_time'
       }
     end
 
@@ -75,15 +75,15 @@ module SwaggerClient
         :'id' => :'Integer',
         :'policy_id' => :'Integer',
         :'status' => :'String',
-        :'trigger' => :'String',
-        :'start_time' => :'DateTime',
-        :'end_time' => :'DateTime',
         :'status_text' => :'String',
+        :'trigger' => :'String',
         :'total' => :'Integer',
         :'failed' => :'Integer',
         :'succeed' => :'Integer',
         :'in_progress' => :'Integer',
-        :'stopped' => :'Integer'
+        :'stopped' => :'Integer',
+        :'start_time' => :'String',
+        :'end_time' => :'String'
       }
     end
 
@@ -107,20 +107,12 @@ module SwaggerClient
         self.status = attributes[:'status']
       end
 
-      if attributes.has_key?(:'trigger')
-        self.trigger = attributes[:'trigger']
-      end
-
-      if attributes.has_key?(:'start_time')
-        self.start_time = attributes[:'start_time']
-      end
-
-      if attributes.has_key?(:'end_time')
-        self.end_time = attributes[:'end_time']
-      end
-
       if attributes.has_key?(:'status_text')
         self.status_text = attributes[:'status_text']
+      end
+
+      if attributes.has_key?(:'trigger')
+        self.trigger = attributes[:'trigger']
       end
 
       if attributes.has_key?(:'total')
@@ -141,6 +133,14 @@ module SwaggerClient
 
       if attributes.has_key?(:'stopped')
         self.stopped = attributes[:'stopped']
+      end
+
+      if attributes.has_key?(:'start_time')
+        self.start_time = attributes[:'start_time']
+      end
+
+      if attributes.has_key?(:'end_time')
+        self.end_time = attributes[:'end_time']
       end
     end
 
@@ -165,15 +165,15 @@ module SwaggerClient
           id == o.id &&
           policy_id == o.policy_id &&
           status == o.status &&
-          trigger == o.trigger &&
-          start_time == o.start_time &&
-          end_time == o.end_time &&
           status_text == o.status_text &&
+          trigger == o.trigger &&
           total == o.total &&
           failed == o.failed &&
           succeed == o.succeed &&
           in_progress == o.in_progress &&
-          stopped == o.stopped
+          stopped == o.stopped &&
+          start_time == o.start_time &&
+          end_time == o.end_time
     end
 
     # @see the `==` method
@@ -185,7 +185,7 @@ module SwaggerClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, policy_id, status, trigger, start_time, end_time, status_text, total, failed, succeed, in_progress, stopped].hash
+      [id, policy_id, status, status_text, trigger, total, failed, succeed, in_progress, stopped, start_time, end_time].hash
     end
 
     # Builds the object from hash

@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **maintainer_count** | **Integer** | The total number of maintainer members. | [optional] 
 **developer_count** | **Integer** | The total number of developer members. | [optional] 
 **guest_count** | **Integer** | The total number of guest members. | [optional] 
-**limited_guest_count** | **Integer** | The total number of limited guest members. | [optional] 
 **quota** | [**ProjectSummaryQuota**](ProjectSummaryQuota.md) |  | [optional] 
 **registry** | [**Registry**](Registry.md) |  | [optional] 
 

@@ -15,34 +15,31 @@ require 'date'
 module SwaggerClient
   # The replication task
   class ReplicationTask
-    # The ID of the task
+    # The ID
     attr_accessor :id
 
-    # The ID of the execution that the task belongs to
+    # The execution ID
     attr_accessor :execution_id
 
-    # The status of the task
-    attr_accessor :status
-
-    # The ID of the underlying job that the task related to
-    attr_accessor :job_id
-
-    # The operation of the task
-    attr_accessor :operation
-
-    # The type of the resource that the task operates
+    # The resource type
     attr_accessor :resource_type
 
-    # The source resource that the task operates
+    # The source resource
     attr_accessor :src_resource
 
-    # The destination resource that the task operates
+    # The destination resource
     attr_accessor :dst_resource
 
-    # The start time of the task
+    # The job ID
+    attr_accessor :job_id
+
+    # The status
+    attr_accessor :status
+
+    # The start time
     attr_accessor :start_time
 
-    # The end time of the task
+    # The end time
     attr_accessor :end_time
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -50,12 +47,11 @@ module SwaggerClient
       {
         :'id' => :'id',
         :'execution_id' => :'execution_id',
-        :'status' => :'status',
-        :'job_id' => :'job_id',
-        :'operation' => :'operation',
         :'resource_type' => :'resource_type',
         :'src_resource' => :'src_resource',
         :'dst_resource' => :'dst_resource',
+        :'job_id' => :'job_id',
+        :'status' => :'status',
         :'start_time' => :'start_time',
         :'end_time' => :'end_time'
       }
@@ -66,14 +62,13 @@ module SwaggerClient
       {
         :'id' => :'Integer',
         :'execution_id' => :'Integer',
-        :'status' => :'String',
-        :'job_id' => :'String',
-        :'operation' => :'String',
         :'resource_type' => :'String',
         :'src_resource' => :'String',
         :'dst_resource' => :'String',
-        :'start_time' => :'DateTime',
-        :'end_time' => :'DateTime'
+        :'job_id' => :'String',
+        :'status' => :'String',
+        :'start_time' => :'String',
+        :'end_time' => :'String'
       }
     end
 
@@ -93,18 +88,6 @@ module SwaggerClient
         self.execution_id = attributes[:'execution_id']
       end
 
-      if attributes.has_key?(:'status')
-        self.status = attributes[:'status']
-      end
-
-      if attributes.has_key?(:'job_id')
-        self.job_id = attributes[:'job_id']
-      end
-
-      if attributes.has_key?(:'operation')
-        self.operation = attributes[:'operation']
-      end
-
       if attributes.has_key?(:'resource_type')
         self.resource_type = attributes[:'resource_type']
       end
@@ -115,6 +98,14 @@ module SwaggerClient
 
       if attributes.has_key?(:'dst_resource')
         self.dst_resource = attributes[:'dst_resource']
+      end
+
+      if attributes.has_key?(:'job_id')
+        self.job_id = attributes[:'job_id']
+      end
+
+      if attributes.has_key?(:'status')
+        self.status = attributes[:'status']
       end
 
       if attributes.has_key?(:'start_time')
@@ -146,12 +137,11 @@ module SwaggerClient
       self.class == o.class &&
           id == o.id &&
           execution_id == o.execution_id &&
-          status == o.status &&
-          job_id == o.job_id &&
-          operation == o.operation &&
           resource_type == o.resource_type &&
           src_resource == o.src_resource &&
           dst_resource == o.dst_resource &&
+          job_id == o.job_id &&
+          status == o.status &&
           start_time == o.start_time &&
           end_time == o.end_time
     end
@@ -165,7 +155,7 @@ module SwaggerClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, execution_id, status, job_id, operation, resource_type, src_resource, dst_resource, start_time, end_time].hash
+      [id, execution_id, resource_type, src_resource, dst_resource, job_id, status, start_time, end_time].hash
     end
 
     # Builds the object from hash

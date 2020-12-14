@@ -32,9 +32,6 @@ module SwaggerClient
     # The total number of guest members.
     attr_accessor :guest_count
 
-    # The total number of limited guest members.
-    attr_accessor :limited_guest_count
-
     attr_accessor :quota
 
     attr_accessor :registry
@@ -48,7 +45,6 @@ module SwaggerClient
         :'maintainer_count' => :'maintainer_count',
         :'developer_count' => :'developer_count',
         :'guest_count' => :'guest_count',
-        :'limited_guest_count' => :'limited_guest_count',
         :'quota' => :'quota',
         :'registry' => :'registry'
       }
@@ -63,7 +59,6 @@ module SwaggerClient
         :'maintainer_count' => :'Integer',
         :'developer_count' => :'Integer',
         :'guest_count' => :'Integer',
-        :'limited_guest_count' => :'Integer',
         :'quota' => :'ProjectSummaryQuota',
         :'registry' => :'Registry'
       }
@@ -101,10 +96,6 @@ module SwaggerClient
         self.guest_count = attributes[:'guest_count']
       end
 
-      if attributes.has_key?(:'limited_guest_count')
-        self.limited_guest_count = attributes[:'limited_guest_count']
-      end
-
       if attributes.has_key?(:'quota')
         self.quota = attributes[:'quota']
       end
@@ -138,7 +129,6 @@ module SwaggerClient
           maintainer_count == o.maintainer_count &&
           developer_count == o.developer_count &&
           guest_count == o.guest_count &&
-          limited_guest_count == o.limited_guest_count &&
           quota == o.quota &&
           registry == o.registry
     end
@@ -152,7 +142,7 @@ module SwaggerClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [repo_count, chart_count, project_admin_count, maintainer_count, developer_count, guest_count, limited_guest_count, quota, registry].hash
+      [repo_count, chart_count, project_admin_count, maintainer_count, developer_count, guest_count, quota, registry].hash
     end
 
     # Builds the object from hash

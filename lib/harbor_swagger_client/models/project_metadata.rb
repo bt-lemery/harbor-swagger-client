@@ -32,9 +32,6 @@ module SwaggerClient
     # Whether this project reuse the system level CVE allowlist as the allowlist of its own.  The valid values are \"true\", \"false\". If it is set to \"true\" the actual allowlist associate with this project, if any, will be ignored.
     attr_accessor :reuse_sys_cve_allowlist
 
-    # The ID of the tag retention policy for the project
-    attr_accessor :retention_id
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -43,8 +40,7 @@ module SwaggerClient
         :'prevent_vul' => :'prevent_vul',
         :'severity' => :'severity',
         :'auto_scan' => :'auto_scan',
-        :'reuse_sys_cve_allowlist' => :'reuse_sys_cve_allowlist',
-        :'retention_id' => :'retention_id'
+        :'reuse_sys_cve_allowlist' => :'reuse_sys_cve_allowlist'
       }
     end
 
@@ -56,8 +52,7 @@ module SwaggerClient
         :'prevent_vul' => :'String',
         :'severity' => :'String',
         :'auto_scan' => :'String',
-        :'reuse_sys_cve_allowlist' => :'String',
-        :'retention_id' => :'String'
+        :'reuse_sys_cve_allowlist' => :'String'
       }
     end
 
@@ -92,10 +87,6 @@ module SwaggerClient
       if attributes.has_key?(:'reuse_sys_cve_allowlist')
         self.reuse_sys_cve_allowlist = attributes[:'reuse_sys_cve_allowlist']
       end
-
-      if attributes.has_key?(:'retention_id')
-        self.retention_id = attributes[:'retention_id']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -121,8 +112,7 @@ module SwaggerClient
           prevent_vul == o.prevent_vul &&
           severity == o.severity &&
           auto_scan == o.auto_scan &&
-          reuse_sys_cve_allowlist == o.reuse_sys_cve_allowlist &&
-          retention_id == o.retention_id
+          reuse_sys_cve_allowlist == o.reuse_sys_cve_allowlist
     end
 
     # @see the `==` method
@@ -134,7 +124,7 @@ module SwaggerClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [public, enable_content_trust, prevent_vul, severity, auto_scan, reuse_sys_cve_allowlist, retention_id].hash
+      [public, enable_content_trust, prevent_vul, severity, auto_scan, reuse_sys_cve_allowlist].hash
     end
 
     # Builds the object from hash

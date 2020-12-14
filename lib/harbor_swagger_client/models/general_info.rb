@@ -41,18 +41,6 @@ module SwaggerClient
     # The build version of Harbor.
     attr_accessor :harbor_version
 
-    # The storage provider's name of Harbor registry
-    attr_accessor :registry_storage_provider_name
-
-    # The flag to indicate whether Harbor is in readonly mode.
-    attr_accessor :read_only
-
-    # The flag to indicate whether notification mechanism is enabled on Harbor instance.
-    attr_accessor :notification_enable
-
-    # The setting of auth proxy this is only available when Harbor relies on authproxy for authentication.
-    attr_accessor :authproxy_settings
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -64,11 +52,7 @@ module SwaggerClient
         :'project_creation_restriction' => :'project_creation_restriction',
         :'self_registration' => :'self_registration',
         :'has_ca_root' => :'has_ca_root',
-        :'harbor_version' => :'harbor_version',
-        :'registry_storage_provider_name' => :'registry_storage_provider_name',
-        :'read_only' => :'read_only',
-        :'notification_enable' => :'notification_enable',
-        :'authproxy_settings' => :'authproxy_settings'
+        :'harbor_version' => :'harbor_version'
       }
     end
 
@@ -83,11 +67,7 @@ module SwaggerClient
         :'project_creation_restriction' => :'String',
         :'self_registration' => :'BOOLEAN',
         :'has_ca_root' => :'BOOLEAN',
-        :'harbor_version' => :'String',
-        :'registry_storage_provider_name' => :'String',
-        :'read_only' => :'BOOLEAN',
-        :'notification_enable' => :'BOOLEAN',
-        :'authproxy_settings' => :'AuthproxySetting'
+        :'harbor_version' => :'String'
       }
     end
 
@@ -134,22 +114,6 @@ module SwaggerClient
       if attributes.has_key?(:'harbor_version')
         self.harbor_version = attributes[:'harbor_version']
       end
-
-      if attributes.has_key?(:'registry_storage_provider_name')
-        self.registry_storage_provider_name = attributes[:'registry_storage_provider_name']
-      end
-
-      if attributes.has_key?(:'read_only')
-        self.read_only = attributes[:'read_only']
-      end
-
-      if attributes.has_key?(:'notification_enable')
-        self.notification_enable = attributes[:'notification_enable']
-      end
-
-      if attributes.has_key?(:'authproxy_settings')
-        self.authproxy_settings = attributes[:'authproxy_settings']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -178,11 +142,7 @@ module SwaggerClient
           project_creation_restriction == o.project_creation_restriction &&
           self_registration == o.self_registration &&
           has_ca_root == o.has_ca_root &&
-          harbor_version == o.harbor_version &&
-          registry_storage_provider_name == o.registry_storage_provider_name &&
-          read_only == o.read_only &&
-          notification_enable == o.notification_enable &&
-          authproxy_settings == o.authproxy_settings
+          harbor_version == o.harbor_version
     end
 
     # @see the `==` method
@@ -194,7 +154,7 @@ module SwaggerClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [with_notary, with_chartmuseum, registry_url, external_url, auth_mode, project_creation_restriction, self_registration, has_ca_root, harbor_version, registry_storage_provider_name, read_only, notification_enable, authproxy_settings].hash
+      [with_notary, with_chartmuseum, registry_url, external_url, auth_mode, project_creation_restriction, self_registration, has_ca_root, harbor_version].hash
     end
 
     # Builds the object from hash

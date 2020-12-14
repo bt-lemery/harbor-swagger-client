@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Swagger-Codegen"]
   s.email       = [""]
-  s.homepage    = "https://github.com/swagger-api/swagger-codegen"
+  s.homepage    = "https://github.com/bt-lemery/harbor-swagger-client/"
   s.summary     = "Harbor API Ruby Gem"
   s.description = "These APIs provide services for manipulating Harbor project."
   s.license     = "Unlicense"

@@ -26,21 +26,13 @@ module SwaggerClient
 
     attr_accessor :items
 
-    # The creation time of the allowlist.
-    attr_accessor :creation_time
-
-    # The update time of the allowlist.
-    attr_accessor :update_time
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
         :'project_id' => :'project_id',
         :'expires_at' => :'expires_at',
-        :'items' => :'items',
-        :'creation_time' => :'creation_time',
-        :'update_time' => :'update_time'
+        :'items' => :'items'
       }
     end
 
@@ -50,9 +42,7 @@ module SwaggerClient
         :'id' => :'Integer',
         :'project_id' => :'Integer',
         :'expires_at' => :'Integer',
-        :'items' => :'Array<CVEAllowlistItem>',
-        :'creation_time' => :'DateTime',
-        :'update_time' => :'DateTime'
+        :'items' => :'Array<CVEAllowlistItem>'
       }
     end
 
@@ -81,14 +71,6 @@ module SwaggerClient
           self.items = value
         end
       end
-
-      if attributes.has_key?(:'creation_time')
-        self.creation_time = attributes[:'creation_time']
-      end
-
-      if attributes.has_key?(:'update_time')
-        self.update_time = attributes[:'update_time']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -112,9 +94,7 @@ module SwaggerClient
           id == o.id &&
           project_id == o.project_id &&
           expires_at == o.expires_at &&
-          items == o.items &&
-          creation_time == o.creation_time &&
-          update_time == o.update_time
+          items == o.items
     end
 
     # @see the `==` method
@@ -126,7 +106,7 @@ module SwaggerClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, project_id, expires_at, items, creation_time, update_time].hash
+      [id, project_id, expires_at, items].hash
     end
 
     # Builds the object from hash

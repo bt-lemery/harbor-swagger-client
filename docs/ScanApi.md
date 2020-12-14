@@ -4,16 +4,16 @@ All URIs are relative to *http://localhost/api/v2.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_report_log**](ScanApi.md#get_report_log) | **GET** /projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/scan/{report_id}/log | Get the log of the scan report
-[**scan_artifact**](ScanApi.md#scan_artifact) | **POST** /projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/scan | Scan the artifact
+[**scans_all_metrics_get**](ScanApi.md#scans_all_metrics_get) | **GET** /scans/all/metrics | Get the metrics of the latest scan all process
+[**scans_schedule_metrics_get**](ScanApi.md#scans_schedule_metrics_get) | **GET** /scans/schedule/metrics | Get the metrics of the latest scheduled scan all process
 
 
-# **get_report_log**
-> String get_report_log(project_namerepository_name, reference, report_id, opts)
+# **scans_all_metrics_get**
+> Stats scans_all_metrics_get
 
-Get the log of the scan report
+Get the metrics of the latest scan all process
 
-Get the log of the scan report
+Get the metrics of the latest scan all process
 
 ### Example
 ```ruby
@@ -21,65 +21,46 @@ Get the log of the scan report
 require 'harbor_swagger_client'
 # setup authorization
 SwaggerClient.configure do |config|
-  # Configure HTTP basic authorization: basic
+  # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
 api_instance = SwaggerClient::ScanApi.new
 
-project_name = 'project_name_example' # String | The name of the project
-
-repository_name = 'repository_name_example' # String | The name of the repository. If it contains slash, encode it with URL encoding. e.g. a/b -> a%252Fb
-
-reference = 'reference_example' # String | The reference of the artifact, can be digest or tag
-
-report_id = 'report_id_example' # String | The report id to get the log
-
-opts = { 
-  x_request_id: 'x_request_id_example' # String | An unique ID for the request
-}
-
 begin
-  #Get the log of the scan report
-  result = api_instance.get_report_log(project_namerepository_name, reference, report_id, opts)
+  #Get the metrics of the latest scan all process
+  result = api_instance.scans_all_metrics_get
   p result
 rescue SwaggerClient::ApiError => e
-  puts "Exception when calling ScanApi->get_report_log: #{e}"
+  puts "Exception when calling ScanApi->scans_all_metrics_get: #{e}"
 end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **project_name** | **String**| The name of the project | 
- **repository_name** | **String**| The name of the repository. If it contains slash, encode it with URL encoding. e.g. a/b -&gt; a%252Fb | 
- **reference** | **String**| The reference of the artifact, can be digest or tag | 
- **report_id** | **String**| The report id to get the log | 
- **x_request_id** | **String**| An unique ID for the request | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
-**String**
+[**Stats**](Stats.md)
 
 ### Authorization
 
-[basic](../README.md#basic)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: text/plain
+ - **Accept**: application/json, text/plain
 
 
 
-# **scan_artifact**
-> scan_artifact(project_namerepository_name, reference, , opts)
+# **scans_schedule_metrics_get**
+> Stats scans_schedule_metrics_get
 
-Scan the artifact
+Get the metrics of the latest scheduled scan all process
 
-Scan the specified artifact
+Get the metrics of the latest scheduled scan all process
 
 ### Example
 ```ruby
@@ -87,52 +68,37 @@ Scan the specified artifact
 require 'harbor_swagger_client'
 # setup authorization
 SwaggerClient.configure do |config|
-  # Configure HTTP basic authorization: basic
+  # Configure HTTP basic authorization: basicAuth
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
 api_instance = SwaggerClient::ScanApi.new
 
-project_name = 'project_name_example' # String | The name of the project
-
-repository_name = 'repository_name_example' # String | The name of the repository. If it contains slash, encode it with URL encoding. e.g. a/b -> a%252Fb
-
-reference = 'reference_example' # String | The reference of the artifact, can be digest or tag
-
-opts = { 
-  x_request_id: 'x_request_id_example' # String | An unique ID for the request
-}
-
 begin
-  #Scan the artifact
-  api_instance.scan_artifact(project_namerepository_name, reference, , opts)
+  #Get the metrics of the latest scheduled scan all process
+  result = api_instance.scans_schedule_metrics_get
+  p result
 rescue SwaggerClient::ApiError => e
-  puts "Exception when calling ScanApi->scan_artifact: #{e}"
+  puts "Exception when calling ScanApi->scans_schedule_metrics_get: #{e}"
 end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **project_name** | **String**| The name of the project | 
- **repository_name** | **String**| The name of the repository. If it contains slash, encode it with URL encoding. e.g. a/b -&gt; a%252Fb | 
- **reference** | **String**| The reference of the artifact, can be digest or tag | 
- **x_request_id** | **String**| An unique ID for the request | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
-nil (empty response body)
+[**Stats**](Stats.md)
 
 ### Authorization
 
-[basic](../README.md#basic)
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, text/plain
 
 
 

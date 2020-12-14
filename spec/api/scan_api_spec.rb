@@ -32,32 +32,23 @@ describe 'ScanApi' do
     end
   end
 
-  # unit tests for get_report_log
-  # Get the log of the scan report
-  # Get the log of the scan report
-  # @param project_name The name of the project
-  # @param repository_name The name of the repository. If it contains slash, encode it with URL encoding. e.g. a/b -&gt; a%252Fb
-  # @param reference The reference of the artifact, can be digest or tag
-  # @param report_id The report id to get the log
+  # unit tests for scans_all_metrics_get
+  # Get the metrics of the latest scan all process
+  # Get the metrics of the latest scan all process
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :x_request_id An unique ID for the request
-  # @return [String]
-  describe 'get_report_log test' do
+  # @return [Stats]
+  describe 'scans_all_metrics_get test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for scan_artifact
-  # Scan the artifact
-  # Scan the specified artifact
-  # @param project_name The name of the project
-  # @param repository_name The name of the repository. If it contains slash, encode it with URL encoding. e.g. a/b -&gt; a%252Fb
-  # @param reference The reference of the artifact, can be digest or tag
+  # unit tests for scans_schedule_metrics_get
+  # Get the metrics of the latest scheduled scan all process
+  # Get the metrics of the latest scheduled scan all process
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :x_request_id An unique ID for the request
-  # @return [nil]
-  describe 'scan_artifact test' do
+  # @return [Stats]
+  describe 'scans_schedule_metrics_get test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

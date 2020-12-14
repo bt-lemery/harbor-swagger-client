@@ -196,7 +196,7 @@ module SwaggerClient
     # Returns Auth Settings hash for api client.
     def auth_settings
       {
-        'basic' =>
+        'basicAuth' =>
           {
             type: 'basic',
             in: 'header',

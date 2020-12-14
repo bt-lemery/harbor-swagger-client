@@ -14,29 +14,32 @@ require 'date'
 
 module SwaggerClient
   class Label
-    # The ID of the label
+    # The ID of label.
     attr_accessor :id
 
-    # The name the label
+    # The name of label.
     attr_accessor :name
 
-    # The description the label
+    # The description of label.
     attr_accessor :description
 
-    # The color the label
+    # The color of label.
     attr_accessor :color
 
-    # The scope the label
+    # The scope of label, g for global labels and p for project labels.
     attr_accessor :scope
 
-    # The ID of project that the label belongs to
+    # The project ID if the label is a project label.
     attr_accessor :project_id
 
-    # The creation time the label
+    # The creation time of label.
     attr_accessor :creation_time
 
-    # The update time of the label
+    # The update time of label.
     attr_accessor :update_time
+
+    # The label is deleted or not.
+    attr_accessor :deleted
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -48,7 +51,8 @@ module SwaggerClient
         :'scope' => :'scope',
         :'project_id' => :'project_id',
         :'creation_time' => :'creation_time',
-        :'update_time' => :'update_time'
+        :'update_time' => :'update_time',
+        :'deleted' => :'deleted'
       }
     end
 
@@ -61,8 +65,9 @@ module SwaggerClient
         :'color' => :'String',
         :'scope' => :'String',
         :'project_id' => :'Integer',
-        :'creation_time' => :'DateTime',
-        :'update_time' => :'DateTime'
+        :'creation_time' => :'String',
+        :'update_time' => :'String',
+        :'deleted' => :'BOOLEAN'
       }
     end
 
@@ -105,6 +110,10 @@ module SwaggerClient
       if attributes.has_key?(:'update_time')
         self.update_time = attributes[:'update_time']
       end
+
+      if attributes.has_key?(:'deleted')
+        self.deleted = attributes[:'deleted']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -132,7 +141,8 @@ module SwaggerClient
           scope == o.scope &&
           project_id == o.project_id &&
           creation_time == o.creation_time &&
-          update_time == o.update_time
+          update_time == o.update_time &&
+          deleted == o.deleted
     end
 
     # @see the `==` method
@@ -144,7 +154,7 @@ module SwaggerClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, description, color, scope, project_id, creation_time, update_time].hash
+      [id, name, description, color, scope, project_id, creation_time, update_time, deleted].hash
     end
 
     # Builds the object from hash

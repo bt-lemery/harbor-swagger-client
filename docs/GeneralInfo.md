@@ -12,9 +12,5 @@ Name | Type | Description | Notes
 **self_registration** | **BOOLEAN** | Indicate whether the Harbor instance enable user to register himself. | [optional] 
 **has_ca_root** | **BOOLEAN** | Indicate whether there is a ca root cert file ready for download in the file system. | [optional] 
 **harbor_version** | **String** | The build version of Harbor. | [optional] 
-**registry_storage_provider_name** | **String** | The storage provider&#39;s name of Harbor registry | [optional] 
-**read_only** | **BOOLEAN** | The flag to indicate whether Harbor is in readonly mode. | [optional] 
-**notification_enable** | **BOOLEAN** | The flag to indicate whether notification mechanism is enabled on Harbor instance. | [optional] 
-**authproxy_settings** | [**AuthproxySetting**](AuthproxySetting.md) | The setting of auth proxy this is only available when Harbor relies on authproxy for authentication. | [optional] 
 
 

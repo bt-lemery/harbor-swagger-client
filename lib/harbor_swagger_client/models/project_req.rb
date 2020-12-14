@@ -17,14 +17,14 @@ module SwaggerClient
     # The name of the project.
     attr_accessor :project_name
 
-    # deprecated, reserved for project creation in replication
-    attr_accessor :public
-
     # The metadata of the project.
     attr_accessor :metadata
 
     # The CVE allowlist of the project.
     attr_accessor :cve_allowlist
+
+    # The count quota of the project.
+    attr_accessor :count_limit
 
     # The storage quota of the project.
     attr_accessor :storage_limit
@@ -36,9 +36,9 @@ module SwaggerClient
     def self.attribute_map
       {
         :'project_name' => :'project_name',
-        :'public' => :'public',
         :'metadata' => :'metadata',
         :'cve_allowlist' => :'cve_allowlist',
+        :'count_limit' => :'count_limit',
         :'storage_limit' => :'storage_limit',
         :'registry_id' => :'registry_id'
       }
@@ -48,9 +48,9 @@ module SwaggerClient
     def self.swagger_types
       {
         :'project_name' => :'String',
-        :'public' => :'BOOLEAN',
         :'metadata' => :'ProjectMetadata',
         :'cve_allowlist' => :'CVEAllowlist',
+        :'count_limit' => :'Integer',
         :'storage_limit' => :'Integer',
         :'registry_id' => :'Integer'
       }
@@ -68,16 +68,16 @@ module SwaggerClient
         self.project_name = attributes[:'project_name']
       end
 
-      if attributes.has_key?(:'public')
-        self.public = attributes[:'public']
-      end
-
       if attributes.has_key?(:'metadata')
         self.metadata = attributes[:'metadata']
       end
 
       if attributes.has_key?(:'cve_allowlist')
         self.cve_allowlist = attributes[:'cve_allowlist']
+      end
+
+      if attributes.has_key?(:'count_limit')
+        self.count_limit = attributes[:'count_limit']
       end
 
       if attributes.has_key?(:'storage_limit')
@@ -108,9 +108,9 @@ module SwaggerClient
       return true if self.equal?(o)
       self.class == o.class &&
           project_name == o.project_name &&
-          public == o.public &&
           metadata == o.metadata &&
           cve_allowlist == o.cve_allowlist &&
+          count_limit == o.count_limit &&
           storage_limit == o.storage_limit &&
           registry_id == o.registry_id
     end
@@ -124,7 +124,7 @@ module SwaggerClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [project_name, public, metadata, cve_allowlist, storage_limit, registry_id].hash
+      [project_name, metadata, cve_allowlist, count_limit, storage_limit, registry_id].hash
     end
 
     # Builds the object from hash

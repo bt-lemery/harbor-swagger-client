@@ -32,19 +32,13 @@ describe 'Permission' do
       expect(@instance).to be_instance_of(SwaggerClient::Permission)
     end
   end
-  describe 'test attribute "kind"' do
+  describe 'test attribute "resource"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "namespace"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "access"' do
+  describe 'test attribute "action"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -13,30 +13,27 @@ Swagger Codegen version: 2.4.17
 require 'date'
 
 module SwaggerClient
+  # The permission
   class Permission
-    # The kind of the permission
-    attr_accessor :kind
+    # The permission resoruce
+    attr_accessor :resource
 
-    # The namespace of the permission
-    attr_accessor :namespace
-
-    attr_accessor :access
+    # The permission action
+    attr_accessor :action
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'kind' => :'kind',
-        :'namespace' => :'namespace',
-        :'access' => :'access'
+        :'resource' => :'resource',
+        :'action' => :'action'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'kind' => :'String',
-        :'namespace' => :'String',
-        :'access' => :'Array<Access>'
+        :'resource' => :'String',
+        :'action' => :'String'
       }
     end
 
@@ -48,18 +45,12 @@ module SwaggerClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'kind')
-        self.kind = attributes[:'kind']
+      if attributes.has_key?(:'resource')
+        self.resource = attributes[:'resource']
       end
 
-      if attributes.has_key?(:'namespace')
-        self.namespace = attributes[:'namespace']
-      end
-
-      if attributes.has_key?(:'access')
-        if (value = attributes[:'access']).is_a?(Array)
-          self.access = value
-        end
+      if attributes.has_key?(:'action')
+        self.action = attributes[:'action']
       end
     end
 
@@ -81,9 +72,8 @@ module SwaggerClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          kind == o.kind &&
-          namespace == o.namespace &&
-          access == o.access
+          resource == o.resource &&
+          action == o.action
     end
 
     # @see the `==` method
@@ -95,7 +85,7 @@ module SwaggerClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [kind, namespace, access].hash
+      [resource, action].hash
     end
 
     # Builds the object from hash
